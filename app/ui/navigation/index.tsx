@@ -1,15 +1,24 @@
-import Link from 'next/link';
+'use client';
 
-import { NavLink } from '@mantine/core';
-import LogoIcon from '../logo-icon';
+import { usePathname } from 'next/navigation';
+import { Box, Stack } from '@mantine/core';
+import Logo from '../logo';
+import NavRef from '../nav-ref';
 
 const Navigation = () => {
+  const path = usePathname();
   return (
-    <>
-      <NavLink leftSection={<LogoIcon size={32} />} label="ArrowFlicks" />
-      <NavLink component={Link} href="/" label="Movies" active />
-      <NavLink component={Link} href="/rated" label="Rated movies" />
-    </>
+    <Box p="xl">
+      <Logo />
+      <Stack>
+        <NavRef href="/movies" label="Movies" active={path === '/movies'} />
+        <NavRef
+          href="/movies/rated"
+          label="Rated movies"
+          active={path === '/movies/rated'}
+        />
+      </Stack>
+    </Box>
   );
 };
 

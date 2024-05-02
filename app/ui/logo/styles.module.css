@@ -1,0 +1,10 @@
+.root {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.label {
+  font-family: var(--font-poppins);
+  font-size: var(--mantine-font-size-lg);
+}

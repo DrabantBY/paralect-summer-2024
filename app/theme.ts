@@ -30,6 +30,16 @@ const theme = createTheme({
     ],
   },
   primaryColor: 'purple',
+  fontSizes: {
+    xs: '0.875rem',
+    sm: '1rem',
+    md: '1.25rem',
+    lg: '1.5rem',
+    xl: '2rem',
+  },
+  spacing: {
+    xl: '1.5rem',
+  },
 });
 
 export default theme;

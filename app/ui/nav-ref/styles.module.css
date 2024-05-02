@@ -1,0 +1,14 @@
+.root {
+  border-radius: var(--mantine-radius-md);
+
+  &:hover {
+    background-color: transparent;
+    color: var(--mantine-color-purple-4);
+  }
+
+  &[data-active] {
+    background-color: var(--mantine-color-purple-2);
+    color: var(--mantine-color-purple-5);
+    font-weight: 700;
+  }
+}

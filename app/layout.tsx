@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 
 import { ColorSchemeScript, MantineProvider, Container, rem } from '@mantine/core';
+import Navigation from './ui/navigation';
 
 import theme from './theme';
+import { inter } from './fonts';
 
 import './globals.css';
 import '@mantine/core/styles.layer.css';
-import Navigation from './ui/navigation';
 
 export const metadata: Metadata = {
   title: 'Movie Search App',
@@ -23,7 +24,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body>
+      <body className={inter.className}>
         <MantineProvider theme={theme}>
           <Container className="body-container" mih="100vh" size={rem(1440)} p={0}>
             <aside className="body-aside">
