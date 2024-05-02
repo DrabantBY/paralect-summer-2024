@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { NavLink, rem } from '@mantine/core';
 import classes from './styles.module.css';
 
-type NavRefPropsType = {
+type RouteLinkPropsType = {
   href: string;
   label: string;
   active: boolean;
 };
 
-const NavRef = memo((props: NavRefPropsType) => {
+const RouteLink = memo((props: RouteLinkPropsType) => {
   return (
     <NavLink
       classNames={classes}
@@ -22,4 +22,4 @@ const NavRef = memo((props: NavRefPropsType) => {
   );
 });
 
-export default NavRef;
+export default RouteLink;

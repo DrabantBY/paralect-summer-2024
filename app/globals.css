@@ -6,3 +6,11 @@
 .body-aside {
   background-color: var(--mantine-color-purple-1);
 }
+
+.body-main {
+  position: relative;
+}
+
+.center {
+  transform: translate(-50%, -50%);
+}

@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { Box, Stack } from '@mantine/core';
 import Logo from '../logo';
-import NavRef from '../nav-ref';
+import RouteLink from '../route-link';
 
 const Navigation = () => {
   const path = usePathname();
@@ -11,8 +11,8 @@ const Navigation = () => {
     <Box p="xl">
       <Logo />
       <Stack>
-        <NavRef href="/movies" label="Movies" active={path === '/movies'} />
-        <NavRef
+        <RouteLink href="/movies" label="Movies" active={path === '/movies'} />
+        <RouteLink
           href="/movies/rated"
           label="Rated movies"
           active={path === '/movies/rated'}
