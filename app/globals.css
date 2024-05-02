@@ -1,0 +1,8 @@
+.body-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.body-aside {
+  background-color: var(--mantine-color-purple-1);
+}
