@@ -23,7 +23,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <MantineProvider theme={theme}>
-          <Container className="body-container" mih="100vh" size={rem(1440)} p={0}>
+          <Container
+            className="body-container"
+            mih="100vh"
+            size={rem(1440)}
+            p={0}
+            bg="gray.1">
             {children}
           </Container>
         </MantineProvider>
