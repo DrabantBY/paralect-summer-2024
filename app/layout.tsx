@@ -2,7 +2,6 @@ import { ColorSchemeScript, MantineProvider, Container, rem } from '@mantine/cor
 import theme from './theme';
 import { inter } from './fonts';
 import type { Metadata } from 'next';
-
 import './globals.css';
 import '@mantine/core/styles.layer.css';
 

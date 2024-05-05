@@ -20,8 +20,8 @@ const BtnLink = memo(({ label, href }: BtnLinkPropsType) => {
       fz="xs"
       lh="xs"
       fw="600"
-      py="xs"
-      px="lg"
+      py="xmd"
+      px="xl"
       radius="md">
       {label}
     </Button>

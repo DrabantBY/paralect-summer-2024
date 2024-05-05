@@ -11,12 +11,12 @@ const theme = createTheme({
       '#F5F5F6',
       '#EAEBED',
       '#D5D6DC',
+      '#C8CAD3',
       '#ACADB9',
       '#7B7C88',
       '#767c91',
       '#656a7e',
       '#585e72',
-      '#4a5167',
     ],
 
     purple: [
@@ -44,7 +44,19 @@ const theme = createTheme({
   },
 
   spacing: {
-    xl: '1.5rem',
+    xs: '0.25rem',
+    sm: '0.375rem',
+    md: '0.5rem',
+    xmd: '0.625rem',
+    lg: '0.75rem',
+    xlg: '1rem',
+    xl: '1.25rem',
+    xxl: '1.5rem',
+  },
+
+  radius: {
+    lg: '0.75rem',
+    xl: '1rem',
   },
 });
 

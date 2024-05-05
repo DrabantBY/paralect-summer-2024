@@ -6,7 +6,7 @@ import notFoundImage from '@/public/empty-page.png';
 const NotFound = () => {
   return (
     <>
-      <Box p="xl">
+      <Box p="xxl">
         <Logo />
       </Box>
       <Empty

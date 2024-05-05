@@ -16,7 +16,7 @@ const RouteLink = memo((props: RouteLinkPropsType) => {
       component={Link}
       {...props}
       h={rem(42)}
-      p="xs"
+      p="xmd"
       lh="xs"
     />
   );
