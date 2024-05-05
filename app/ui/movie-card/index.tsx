@@ -31,14 +31,18 @@ export const MovieCard = memo(({ genres, movie }: MovieCardPropsType) => {
   return (
     <Paper component={Link} href={`/movie/${movie.id}`} radius="lg" p="xxl">
       <Group align="flex-start" wrap="nowrap" h="100%" gap="xlg">
-        <Image
-          component={NextImage}
-          src={src}
-          width={120}
-          height={170}
-          alt="Poster image"
-          fallbackSrc={noposter.src}
-        />
+        <Box pos="relative" miw={120} h={170}>
+          <Image
+            component={NextImage}
+            src={src}
+            alt="Poster image"
+            sizes="100%"
+            fit="cover"
+            fill
+            fallbackSrc={noposter.src}
+            priority
+          />
+        </Box>
 
         <Stack justify="space-between" h="100%" gap="sm">
           <Stack gap="md">
