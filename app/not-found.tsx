@@ -9,11 +9,14 @@ const NotFound = () => {
       <Box p="xxl">
         <Logo />
       </Box>
-      <Empty
-        src={notFoundImage}
-        label="Go Home"
-        message="We can’t find the page you are looking for"
-      />
+      <Box className="center">
+        <Empty
+          src={notFoundImage}
+          label="Go Home"
+          message="We can’t find the page you are looking for"
+          width={656}
+        />
+      </Box>
     </>
   );
 };

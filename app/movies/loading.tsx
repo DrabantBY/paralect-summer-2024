@@ -1,7 +1,7 @@
-import { Loader } from '@mantine/core';
+import Spinner from '../ui/spinner';
 
 const Loading = () => {
-  return <Loader className="center" size="xl" color="purple.4" />;
+  return <Spinner />;
 };
 
 export default Loading;

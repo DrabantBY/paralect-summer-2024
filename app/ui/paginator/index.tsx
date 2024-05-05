@@ -18,8 +18,8 @@ const Paginator = memo(({ total }: { total: number }) => {
       size="md"
       radius="sm"
       color="purple.5"
-      style={{
-        fontSize: 'var(--mantine-font-size-sm)',
+      styles={{
+        control: { fontSize: 'var(--mantine-font-size-sm)' },
       }}
     />
   );

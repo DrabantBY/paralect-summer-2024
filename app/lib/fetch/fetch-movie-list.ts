@@ -1,8 +1,14 @@
+import formatParams from '../utils/format-params';
 import type { FetchMovieListDataType } from '@/app/types/fetch';
+import type { MoviesPageSearchParamsType } from '@/app/types/page';
 
-const fetchMovieList = async (): Promise<FetchMovieListDataType | null> => {
+const fetchMovieList = async (
+  searchParams: MoviesPageSearchParamsType
+): Promise<FetchMovieListDataType | null> => {
+  const urlSearchParams = formatParams(searchParams);
+
   const response = await fetch(
-    `${process.env.baseUrl}/discover/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US`
+    `${process.env.baseUrl}/discover/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&${urlSearchParams}`
   );
 
   if (!response.ok) {
@@ -10,26 +16,6 @@ const fetchMovieList = async (): Promise<FetchMovieListDataType | null> => {
   }
 
   const data: FetchMovieListDataType = await response.json();
-
-  data.results = data.results.map(
-    ({
-      id,
-      vote_count,
-      genre_ids,
-      poster_path,
-      vote_average,
-      release_date,
-      original_title,
-    }) => ({
-      id,
-      vote_count,
-      genre_ids,
-      poster_path,
-      vote_average,
-      release_date,
-      original_title,
-    })
-  );
 
   return data;
 };
