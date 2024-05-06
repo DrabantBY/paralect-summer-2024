@@ -19,7 +19,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    optimizePackageImports: ['@mantine/core', '@mantine/hooks', '@mantine/form'],
   },
 };
 

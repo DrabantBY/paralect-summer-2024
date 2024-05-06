@@ -1,0 +1,38 @@
+.label {
+  margin-block-end: var(--mantine-spacing-md);
+  font-size: var(--mantine-font-size-sm);
+  line-height: var(--mantine-line-height-xs);
+  font-weight: 700;
+}
+
+.input {
+  padding-inline-start: var(--mantine-spacing-lg);
+  padding-block: var(--mantine-spacing-xmd);
+  font-size: var(--mantine-font-size-xs);
+  border: 1px solid var(--mantine-color-gray-3);
+  &::placeholder {
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-gray-5);
+  }
+  &:hover,
+  &:focus {
+    border: 1px solid var(--mantine-color-purple-5);
+  }
+}
+
+.dropdown {
+  border-radius: var(--mantine-radius-md);
+}
+
+.option {
+  height: 36px;
+  font-size: var(--mantine-font-size-xs);
+  border-radius: var(--mantine-radius-md);
+  &:hover {
+    background-color: var(--mantine-color-purple-1);
+  }
+  &[data-checked] {
+    background-color: var(--mantine-color-purple-5);
+    color: var(--mantine-color-white);
+  }
+}

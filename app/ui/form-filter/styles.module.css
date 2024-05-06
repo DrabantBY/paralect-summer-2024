@@ -1,0 +1,4 @@
+.form {
+  margin-block-start: 40px;
+  margin-block-end: var(--mantine-spacing-xxl);
+}

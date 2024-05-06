@@ -7,6 +7,7 @@ import EmptyData from '../ui/empty-data';
 import fetchGenres from '../lib/fetch/fetch-genres';
 import fetchMovieList from '../lib/fetch/fetch-movie-list';
 import type { MoviesPageSearchParamsType } from '../types/page';
+import FormFilter from '../ui/form-filter';
 
 export default async function MoviesPage({
   searchParams,
@@ -25,7 +26,7 @@ export default async function MoviesPage({
 
   return (
     <Container my={rem(40)} px="xmd" size={rem(1000)}>
-      <Title fz="xl">Movies</Title>
+      <Title fz="xl">Movies</Title> <FormFilter genres={genres} />
       <Suspense key={suspenseKey.toString()} fallback={<Spinner />}>
         {isEmptyResults ? (
           <EmptyData />

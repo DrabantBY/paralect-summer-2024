@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import NextImage from 'next/image';
-
 import {
   Paper,
   Title,
@@ -12,7 +11,7 @@ import {
   Image,
   Box,
 } from '@mantine/core';
-import StarIcon from '../star';
+import { StarIcon } from '../icons';
 import formatNumber from '@/app/lib/utils/format-number';
 import formatGenres from '@/app/lib/utils/format-genres';
 import noposter from '@/public/noposter.png';

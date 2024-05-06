@@ -1,0 +1,14 @@
+.root {
+  padding-block: 0;
+  padding-inline: 0;
+
+  &:hover {
+    color: var(--mantine-color-purple-4);
+  }
+  &:active {
+    color: var(--mantine-color-purple-6);
+  }
+  &:disabled {
+    color: var(--mantine-color-gray-6);
+  }
+}
