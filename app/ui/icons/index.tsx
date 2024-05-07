@@ -60,6 +60,24 @@ export const ArrowDownIcon = memo(({ size, style, ...others }: IconPropsType) =>
   );
 });
 
+export const ArrowUpIcon = memo(({ size, style, ...others }: IconPropsType) => {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: rem(size), height: rem(size), ...style }}
+      {...others}>
+      <path
+        d="M12.6667 10L8.52071 6.44626C8.22112 6.18946 7.77904 6.18946 7.47945 6.44626L3.33341 10"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+});
+
 export const CloseIcon = memo(({ size, style, ...others }: IconPropsType) => {
   return (
     <svg

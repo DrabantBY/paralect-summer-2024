@@ -6,6 +6,7 @@ import classes from './styles.module.css';
 const BtnReset = memo(() => {
   return (
     <Button
+      type="submit"
       classNames={classes}
       variant="transparent"
       miw="fit-content"

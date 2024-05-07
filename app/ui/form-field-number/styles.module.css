@@ -1,0 +1,34 @@
+.label {
+  margin-block-end: var(--mantine-spacing-md);
+  font-size: var(--mantine-font-size-sm);
+  line-height: var(--mantine-line-height-xs);
+  font-weight: 700;
+}
+
+.input {
+  padding-inline-start: var(--mantine-spacing-lg);
+  padding-block: var(--mantine-spacing-xmd);
+  font-size: var(--mantine-font-size-xs);
+  border: 1px solid var(--mantine-color-gray-3);
+  &::placeholder {
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-gray-5);
+  }
+  &:hover,
+  &:focus {
+    border: 1px solid var(--mantine-color-purple-5);
+  }
+}
+
+.control {
+  border: none;
+  color: var(--mantine-color-gray-5);
+  &:hover {
+    color: var(--mantine-color-purple-4);
+    background-color: transparent;
+  }
+  &:active {
+    color: var(--mantine-color-purple-5);
+    background-color: transparent;
+  }
+}
