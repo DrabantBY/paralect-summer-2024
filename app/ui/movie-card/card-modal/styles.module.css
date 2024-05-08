@@ -1,0 +1,7 @@
+.header {
+  padding-inline-end: var(--mantine-spacing-xlg);
+  border: 1px solid var(--mantine-color-gray-2);
+}
+.title {
+  font-size: var(--mantine-font-size-sm);
+}

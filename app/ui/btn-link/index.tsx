@@ -1,19 +1,22 @@
-import { memo } from 'react';
-import Link from 'next/link';
+import { ElementType, memo } from 'react';
+
 import { Button, rem } from '@mantine/core';
 import classes from './styles.module.css';
 
 type BtnLinkPropsType = {
   label: string;
-  href: string;
+  href?: string;
+  component?: ElementType<any, any>;
+  onClick?: () => void;
 };
 
-const BtnLink = memo(({ label, href }: BtnLinkPropsType) => {
+const BtnLink = memo(({ label, component, href, onClick }: BtnLinkPropsType) => {
   return (
     <Button
       classNames={classes}
-      component={Link}
+      component={component}
       href={href}
+      onClick={onClick}
       h={rem(40)}
       w="fit-content"
       color="purple.5"

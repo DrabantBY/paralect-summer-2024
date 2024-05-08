@@ -10,16 +10,7 @@ type RouteLinkPropsType = {
 };
 
 const RouteLink = memo((props: RouteLinkPropsType) => {
-  return (
-    <NavLink
-      classNames={classes}
-      component={Link}
-      {...props}
-      h={rem(42)}
-      p="xmd"
-      lh="xs"
-    />
-  );
+  return <NavLink classNames={classes} component={Link} {...props} h={rem(42)} p="xmd" />;
 });
 
 export default RouteLink;

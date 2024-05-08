@@ -11,9 +11,9 @@ const Navigation = () => {
     <Box p="xxl">
       <Logo />
       <Stack gap="xlg">
-        <RouteLink href="/movies?page=1" label="Movies" active={path === '/movies'} />
+        <RouteLink href="/movies" label="Movies" active={path === '/movies'} />
         <RouteLink
-          href="/movies/rated?page=1"
+          href="/movies/rated"
           label="Rated movies"
           active={path === '/movies/rated'}
         />

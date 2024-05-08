@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import Link from 'next/link';
 import NextImage, { StaticImageData } from 'next/image';
 import { Stack, Image, Text } from '@mantine/core';
 import BtnLink from '../btn-link';
@@ -17,7 +18,7 @@ const Empty = memo(({ src, message, label, width }: EmptyPropsType) => {
       <Text fw="600" size="md" mt={message.includes('page') ? 32 : 0} ta="center">
         {message}
       </Text>
-      {label ? <BtnLink label={label} href="/movies" /> : null}
+      {label ? <BtnLink label={label} component={Link} href="/movies" /> : null}
     </Stack>
   );
 });
