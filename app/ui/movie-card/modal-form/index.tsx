@@ -1,51 +1,50 @@
-import { FormEventHandler, memo, useState } from 'react';
-import { Rating, Stack, Text } from '@mantine/core';
-import StarDisabled from '../../star-disabled';
-import StarActivated from '../../star-activated';
+import { memo, useState, useCallback } from 'react';
+import { Group, Rating, Stack, Text } from '@mantine/core';
+import { StarDisabled } from '../card-star';
+import { StarActivated } from '../card-star';
+import BtnLink from '../../btn-link';
 import classes from './styles.module.css';
+import BtnReset from '../../btn-reset/btn-reset';
 
 type ModalFormPropsType = {
   title: string;
   rating: number;
-  onSubmit: (value: number) => void;
+  submit: (value: number) => void;
 };
 
-const ModalForm = memo(({ title, rating, onSubmit }: ModalFormPropsType) => {
+const ModalForm = memo(({ title, rating, submit }: ModalFormPropsType) => {
   const [ratingValue, setRatingValue] = useState<number>(rating);
 
-  const saveRating: FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    onSubmit(ratingValue);
-  };
-
-  const resetRating = () => {
+  const resetRating = useCallback(() => {
     setRatingValue(0);
-    onSubmit(0);
-  };
-
-  const changeRating = (value: number) => {
-    setRatingValue(value);
-  };
+  }, []);
 
   return (
-    <form onSubmit={saveRating}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        submit(ratingValue);
+      }}>
       <Stack gap="xlg" mt="xlg">
         <Text fz="sm" fw="700">
           {title}
         </Text>
         <Rating
-          name="rating"
           classNames={classes}
           count={10}
           emptySymbol={<StarDisabled />}
           fullSymbol={<StarActivated />}
           value={ratingValue}
-          onChange={changeRating}
+          onChange={setRatingValue}
         />
-        <button type="submit">submit</button>
-        <button type="button" onClick={resetRating}>
-          remove rating
-        </button>
+        <Group gap="xlg">
+          <BtnLink label="Save" type="submit" />
+          <BtnReset
+            label="Remove rating"
+            onClick={resetRating}
+            disabled={ratingValue === 0}
+          />
+        </Group>
       </Stack>
     </form>
   );

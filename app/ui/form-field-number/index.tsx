@@ -9,7 +9,17 @@ type FormFieldNumberPropsType = {
 };
 
 const FormFieldNumber = memo((props: FormFieldNumberPropsType) => {
-  return <NumberInput classNames={classes} {...props} size="md" radius="md" />;
+  return (
+    <NumberInput
+      classNames={classes}
+      {...props}
+      size="md"
+      radius="md"
+      min={0}
+      step={1}
+      max={10}
+    />
+  );
 });
 
 export default FormFieldNumber;

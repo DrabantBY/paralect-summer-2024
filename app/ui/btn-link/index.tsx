@@ -7,16 +7,16 @@ type BtnLinkPropsType = {
   label: string;
   href?: string;
   component?: ElementType<any, any>;
-  onClick?: () => void;
+  type?: 'submit';
 };
 
-const BtnLink = memo(({ label, component, href, onClick }: BtnLinkPropsType) => {
+const BtnLink = memo(({ label, type, component, href }: BtnLinkPropsType) => {
   return (
     <Button
+      type={type}
       classNames={classes}
       component={component}
       href={href}
-      onClick={onClick}
       h={rem(40)}
       w="fit-content"
       color="purple.5"

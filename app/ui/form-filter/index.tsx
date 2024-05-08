@@ -41,8 +41,7 @@ const FormFilter = ({ genres }: FormFilterPropsType) => {
         <FormFieldNumber name="vote_average.lte" label="Ratings" placeholder="From" />
         <FormFieldNumber name="vote_average.gte" placeholder="To" />
       </Group>
-
-      <BtnReset />
+      <BtnReset label="Reset filters" disabled={false} />
     </form>
   );
 };

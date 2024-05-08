@@ -8,6 +8,7 @@ import CardImage from './card-image';
 import CardHeader from './card-header';
 import formatGenres from '@/app/lib/utils/format-genres';
 import type { GenreDataType, MovieDataType } from '@/app/types/data';
+import { StarActivated } from './card-star';
 
 type MovieCardPropsType = {
   genres: GenreDataType[];
@@ -29,7 +30,9 @@ export const MovieCard = memo(({ genres, movie }: MovieCardPropsType) => {
               {movie.release_date.slice(0, 4)}
             </Text>
             <Group gap="md">
-              <VoteAverage value={movie.vote_average} />
+              <VoteAverage value={movie.vote_average}>
+                <StarActivated />
+              </VoteAverage>
               <VoteCount value={movie.vote_count} />
             </Group>
           </Stack>

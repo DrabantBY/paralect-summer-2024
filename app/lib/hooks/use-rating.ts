@@ -1,5 +1,6 @@
-import { MouseEventHandler, useState, useCallback } from 'react';
+import { MouseEventHandler, useState, useCallback, FormEvent } from 'react';
 import { useLocalStorage } from '@mantine/hooks';
+import formatStorage from '../utils/format-storage';
 
 type MovieRating = {
   ratingId: number;
@@ -8,12 +9,11 @@ type MovieRating = {
 
 const useRating = (id: number) => {
   const [opened, setOpened] = useState(false);
+
   const [movies, setRating] = useLocalStorage<MovieRating[]>({
     key: 'ratedMovies',
     defaultValue: [],
   });
-
-  const ratingValue = movies[0] ?? 0;
 
   const openRating: MouseEventHandler<HTMLButtonElement> = useCallback((e) => {
     e.preventDefault();
@@ -24,16 +24,19 @@ const useRating = (id: number) => {
     setOpened(false);
   }, []);
 
+  const currentRatingValue =
+    movies.find((movie) => movie.ratingId === id)?.ratingValue ?? 0;
+
   const saveRating = useCallback(
     (value: number) => {
-      console.log('new rating', value);
-      setRating([value]);
+      const newMovieList = formatStorage(movies, id, value);
+      setRating(newMovieList);
       closeRating();
     },
-    [closeRating, setRating]
+    [closeRating, setRating, id, movies]
   );
 
-  return { opened, ratingValue, saveRating, closeRating, openRating };
+  return { opened, currentRatingValue, saveRating, closeRating, openRating };
 };
 
 export default useRating;
