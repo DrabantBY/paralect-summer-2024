@@ -6,7 +6,6 @@ export type MovieDataType = {
   vote_average: number;
   release_date: string;
   original_title: string;
-
   title?: string;
   adult?: boolean;
   video?: boolean;
@@ -69,4 +68,20 @@ export type MovieDetailsDataType = Omit<MovieDataType, 'genre_ids'> & {
   belongs_to_collection?: null;
   spoken_languages?: LanguageDataType[];
   production_countries?: CountryProductionDataType[];
+};
+
+export type MovieCardDatatype = {
+  id: number;
+  genres: string;
+  vote_count: number;
+  poster_path: string;
+  release_year: string;
+  vote_average: number;
+  release_date: string;
+  original_title: string;
+  rating?: number;
+  release_date?: string;
+  budget?: number;
+  revenue?: number; //gross
+  runtime?: number;
 };

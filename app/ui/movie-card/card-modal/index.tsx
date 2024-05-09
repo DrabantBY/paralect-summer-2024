@@ -8,14 +8,14 @@ import useRating from '@/app/lib/hooks/use-rating';
 import classes from './styles.module.css';
 import { StarRated } from '../card-star';
 import { CloseIcon } from '../../icons';
+import type { MovieCardDatatype } from '@/app/types/data';
 
 type ModalRatingPropsType = {
-  title: string;
-  id: number;
+  movie: MovieCardDatatype;
 };
 
-const CardModal = memo(({ title, id }: ModalRatingPropsType) => {
-  const { opened, rating, saveRating, closeRating, openRating } = useRating(id);
+const CardModal = memo(({ movie }: ModalRatingPropsType) => {
+  const { opened, rating, saveRating, closeRating, openRating } = useRating(movie);
 
   return (
     <Group gap="xs" wrap="nowrap">
@@ -34,8 +34,9 @@ const CardModal = memo(({ title, id }: ModalRatingPropsType) => {
         size="sm"
         padding="xlg"
         radius="md">
-        <ModalForm title={title} rating={rating} submit={saveRating} />
+        <ModalForm title={movie.original_title} rating={rating} submit={saveRating} />
       </Modal>
+
       <VoteAverage value={rating} onClick={openRating}>
         <StarRated />
       </VoteAverage>

@@ -9,6 +9,7 @@ const NotFound = () => {
       <Box p="xxl">
         <Logo />
       </Box>
+
       <Box className="center">
         <Empty
           src={notFoundImage}

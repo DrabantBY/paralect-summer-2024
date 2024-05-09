@@ -4,35 +4,35 @@ import MovieList from '../ui/movie-list';
 import Paginator from '../ui/paginator';
 import Spinner from '../ui/spinner';
 import EmptyData from '../ui/empty-data';
-import fetchGenres from '../lib/fetch/fetch-genres';
-import fetchMovieList from '../lib/fetch/fetch-movie-list';
-import type { MoviesPageSearchParamsType } from '../types/page';
 import FormFilter from '../ui/form-filter';
+import fetchMoviesPage from '../lib/fetch/fetch-movies-page';
+import type { MoviesPageSearchParamsType } from '../types/page';
 
 export default async function MoviesPage({
   searchParams,
 }: {
   searchParams: MoviesPageSearchParamsType;
 }) {
-  const [genres, data] = await Promise.all([fetchGenres(), fetchMovieList(searchParams)]);
+  const data = await fetchMoviesPage(searchParams);
 
-  if (!genres || !data) {
+  if (!data) {
     return null;
   }
 
-  const { results } = data;
+  const { movies, genreData, yearsData, isEmptyMovies } = data;
+
   const suspenseKey = new URLSearchParams(searchParams);
-  const isEmptyResults = results.length === 0;
 
   return (
     <Container my={rem(40)} px="xmd" size={rem(1000)}>
-      <Title fz="xl">Movies</Title> <FormFilter genres={genres} />
+      <Title fz="xl">Movies</Title>
+      <FormFilter genres={genreData} years={yearsData} searchParams={searchParams} />
       <Suspense key={suspenseKey.toString()} fallback={<Spinner />}>
-        {isEmptyResults ? (
+        {isEmptyMovies ? (
           <EmptyData />
         ) : (
           <>
-            <MovieList results={results} genres={genres} />
+            <MovieList movies={movies} />
             <Group justify="flex-end" mt="xxl">
               <Paginator total={Number(process.env.totalPages)} />
             </Group>

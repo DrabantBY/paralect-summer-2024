@@ -11,6 +11,7 @@ const CardDetails = memo(({ genres }: CardDetailsPropsType) => {
       <Text size="sm" c="gray.6">
         Genres
       </Text>
+
       <Text size="sm" c="black">
         {genres}
       </Text>

@@ -9,7 +9,9 @@ const fetchGenres = async (): Promise<GenreDataType[] | null> => {
   if (!response.ok) {
     return null;
   }
+
   const { genres }: FetchGenreListDataType = await response.json();
+
   return genres;
 };
 

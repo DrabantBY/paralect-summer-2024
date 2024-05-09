@@ -1,16 +1,12 @@
-import { MouseEventHandler, useState, useCallback, FormEvent } from 'react';
+import { MouseEventHandler, useState, useCallback } from 'react';
 import { useLocalStorage } from '@mantine/hooks';
 import formatStorage from '../utils/format-storage';
+import type { MovieCardDatatype } from '@/app/types/data';
 
-type MovieRating = {
-  ratingId: number;
-  ratingValue: number;
-};
-
-const useRating = (id: number) => {
+const useRating = (movie: MovieCardDatatype) => {
   const [opened, setOpened] = useState(false);
 
-  const [movies, setRating] = useLocalStorage<MovieRating[]>({
+  const [ratedMovies, setRatedMovies] = useLocalStorage<MovieCardDatatype[]>({
     key: 'ratedMovies',
     defaultValue: [],
   });
@@ -24,15 +20,15 @@ const useRating = (id: number) => {
     setOpened(false);
   }, []);
 
-  const rating = movies.find((movie) => movie.ratingId === id)?.ratingValue ?? 0;
+  const rating = ratedMovies.find((rateMovie) => rateMovie.id === movie.id)?.rating ?? 0;
 
   const saveRating = useCallback(
     (value: number) => {
-      const newMovieList = formatStorage(movies, id, value);
-      setRating(newMovieList);
+      const newMovieList = formatStorage(ratedMovies, movie, value);
+      setRatedMovies(newMovieList);
       closeRating();
     },
-    [closeRating, setRating, id, movies]
+    [closeRating, movie, ratedMovies, setRatedMovies]
   );
 
   return { opened, rating, saveRating, closeRating, openRating };

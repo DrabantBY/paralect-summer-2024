@@ -13,6 +13,7 @@ const styles = {
 
 const VoteCount = memo(({ value }: VoteCountPropsType) => {
   const props = formatNumber(value);
+
   return (
     <NumberFormatter
       {...props}

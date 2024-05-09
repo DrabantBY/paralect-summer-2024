@@ -4,6 +4,10 @@ import { memo } from 'react';
 import { Pagination } from '@mantine/core';
 import usePaginator from '@/app/lib/hooks/use-paginator';
 
+const styles = {
+  control: { fontSize: 'var(--mantine-font-size-sm)' },
+};
+
 const Paginator = memo(({ total }: { total: number }) => {
   const { page, setPage, setPrevPage, setNextPage } = usePaginator();
 
@@ -18,9 +22,7 @@ const Paginator = memo(({ total }: { total: number }) => {
       size="md"
       radius="sm"
       color="purple.5"
-      styles={{
-        control: { fontSize: 'var(--mantine-font-size-sm)' },
-      }}
+      styles={styles}
     />
   );
 });

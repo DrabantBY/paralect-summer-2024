@@ -3,8 +3,8 @@ import { Group, Rating, Stack, Text } from '@mantine/core';
 import { StarDisabled } from '../card-star';
 import { StarActivated } from '../card-star';
 import BtnLink from '../../btn-link';
-import classes from './styles.module.css';
 import BtnReset from '../../btn-reset/btn-reset';
+import classes from './styles.module.css';
 
 type ModalFormPropsType = {
   title: string;
@@ -29,6 +29,7 @@ const ModalForm = memo(({ title, rating, submit }: ModalFormPropsType) => {
         <Text fz="sm" fw="700">
           {title}
         </Text>
+
         <Rating
           classNames={classes}
           count={10}
@@ -37,8 +38,10 @@ const ModalForm = memo(({ title, rating, submit }: ModalFormPropsType) => {
           value={ratingValue}
           onChange={setRatingValue}
         />
+
         <Group gap="xlg">
           <BtnLink label="Save" type="submit" />
+
           <BtnReset
             label="Remove rating"
             onClick={resetRating}

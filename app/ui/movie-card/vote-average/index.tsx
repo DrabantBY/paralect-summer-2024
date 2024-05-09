@@ -20,6 +20,7 @@ const VoteAverage = memo(({ children, value, onClick }: VoteAveragePropsType) =>
       <ActionIcon variant="transparent" onClick={onClick}>
         {value > 0 ? children : <StarDisabled />}
       </ActionIcon>
+
       {value === 0 ? null : (
         <NumberFormatter
           value={value}

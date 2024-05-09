@@ -1,5 +1,4 @@
 import { ElementType, memo } from 'react';
-
 import { Button, rem } from '@mantine/core';
 import classes from './styles.module.css';
 

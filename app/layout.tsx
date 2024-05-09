@@ -20,6 +20,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
+
       <body className={inter.className}>
         <MantineProvider theme={theme}>
           <Container

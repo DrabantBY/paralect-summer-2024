@@ -7,11 +7,14 @@ import RouteLink from '../route-link';
 
 const Navigation = () => {
   const path = usePathname();
+
   return (
     <Box p="xxl">
       <Logo />
+
       <Stack gap="xlg">
         <RouteLink href="/movies" label="Movies" active={path === '/movies'} />
+
         <RouteLink
           href="/movies/rated"
           label="Rated movies"

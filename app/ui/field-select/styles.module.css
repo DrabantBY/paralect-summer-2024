@@ -9,10 +9,12 @@
   padding-block: var(--mantine-spacing-xmd);
   font-size: var(--mantine-font-size-xs);
   border: 1px solid var(--mantine-color-gray-3);
+
   &::placeholder {
     font-size: var(--mantine-font-size-xs);
     color: var(--mantine-color-gray-5);
   }
+
   &:hover,
   &:focus {
     border: 1px solid var(--mantine-color-purple-5);
@@ -27,9 +29,11 @@
   height: 36px;
   font-size: var(--mantine-font-size-xs);
   border-radius: var(--mantine-radius-md);
+
   &:hover {
     background-color: var(--mantine-color-purple-1);
   }
+
   &[data-checked] {
     background-color: var(--mantine-color-purple-5);
     color: var(--mantine-color-white);

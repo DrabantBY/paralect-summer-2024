@@ -1,8 +1,8 @@
 import type { GenreDataType } from '@/app/types/data';
 
-const formatGenres = (ids: number[], genres: GenreDataType[]) => {
+const formatGenreIds = (ids: number[], genre: GenreDataType[]): string => {
   const names = ids.reduce((acc, id) => {
-    const foundGenre = genres.find((genre) => genre.id === id);
+    const foundGenre = genre.find((genre) => genre.id === id);
 
     if (foundGenre) {
       acc.push(foundGenre.name);
@@ -14,4 +14,4 @@ const formatGenres = (ids: number[], genres: GenreDataType[]) => {
   return names.join(', ');
 };
 
-export default formatGenres;
+export default formatGenreIds;

@@ -1,19 +1,20 @@
 import { memo } from 'react';
 import { Group, Title } from '@mantine/core';
 import CardModal from '../card-modal';
+import type { MovieCardDatatype } from '@/app/types/data';
 
 type CardHeaderPropsType = {
-  title: string;
-  id: number;
+  movie: MovieCardDatatype;
 };
 
-const CardHeader = memo(({ title, id }: CardHeaderPropsType) => {
+const CardHeader = memo(({ movie }: CardHeaderPropsType) => {
   return (
     <Group align="flex-start" gap="xs" justify="space-between" wrap="nowrap">
       <Title size="md" fw="600" c="purple.5">
-        {title}
+        {movie.original_title}
       </Title>
-      <CardModal title={title} id={id} />
+
+      <CardModal movie={movie} />
     </Group>
   );
 });

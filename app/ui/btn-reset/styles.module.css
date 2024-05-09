@@ -5,9 +5,11 @@
   &:hover {
     color: var(--mantine-color-purple-4);
   }
+
   &:active {
     color: var(--mantine-color-purple-6);
   }
+
   &:disabled {
     background-color: transparent;
     color: var(--mantine-color-gray-6);
