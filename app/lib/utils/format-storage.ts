@@ -39,16 +39,12 @@ const formatStorage = (movies: MovieRating[], id: number, value: number) => {
       newMovieList = addMovie(movies, id, value);
       break;
 
-    default:
+    case value === 0 && isMovieExist:
       newMovieList = remMovie(movies, id);
-    //   if (value === 0) {
-    //     newMovieList = remMovie(movies, id);
-    //   } else {
-    //     if (isMovieExist) {
-    //       newMovieList = updMovie(movies, id, value);
-    //     } else {
-    //       newMovieList = addMovie(movies, id, value);
-    //     }
+      break;
+
+    default:
+      return movies;
   }
 
   return newMovieList;

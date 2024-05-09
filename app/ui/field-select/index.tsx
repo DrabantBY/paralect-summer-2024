@@ -3,14 +3,14 @@ import { memo } from 'react';
 import { ArrowDownIcon } from '../icons';
 import classes from './styles.module.css';
 
-type FormFieldSelectPropsType = {
+type FieldSelectPropsType = {
   name: string;
   label: string;
   placeholder: string;
   data: ComboboxData;
 };
 
-const FormFieldSelect = memo((props: FormFieldSelectPropsType) => {
+const FieldSelect = memo((props: FieldSelectPropsType) => {
   return (
     <Select
       classNames={classes}
@@ -36,4 +36,4 @@ const FormFieldSelect = memo((props: FormFieldSelectPropsType) => {
   );
 });
 
-export default FormFieldSelect;
+export default FieldSelect;

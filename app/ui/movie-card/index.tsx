@@ -17,10 +17,11 @@ type MovieCardPropsType = {
 
 export const MovieCard = memo(({ genres, movie }: MovieCardPropsType) => {
   const genreNames = formatGenres(movie.genre_ids, genres);
+
   const src = `${process.env.baseImgUrl}/${process.env.posterSmWidth}${movie.poster_path}`;
-  // component={Link} href={`/movie/${movie.id}`}
+
   return (
-    <Paper radius="lg" p="xxl">
+    <Paper radius="lg" p="xxl" component={Link} href={`/movie/${movie.id}`}>
       <Group align="flex-start" wrap="nowrap" h="100%" gap="xlg">
         <CardImage src={src} />
         <Stack justify="space-between" h="100%" gap="sm" w="100%">

@@ -24,8 +24,7 @@ const useRating = (id: number) => {
     setOpened(false);
   }, []);
 
-  const currentRatingValue =
-    movies.find((movie) => movie.ratingId === id)?.ratingValue ?? 0;
+  const rating = movies.find((movie) => movie.ratingId === id)?.ratingValue ?? 0;
 
   const saveRating = useCallback(
     (value: number) => {
@@ -36,7 +35,7 @@ const useRating = (id: number) => {
     [closeRating, setRating, id, movies]
   );
 
-  return { opened, currentRatingValue, saveRating, closeRating, openRating };
+  return { opened, rating, saveRating, closeRating, openRating };
 };
 
 export default useRating;

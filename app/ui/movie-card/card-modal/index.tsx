@@ -15,8 +15,7 @@ type ModalRatingPropsType = {
 };
 
 const CardModal = memo(({ title, id }: ModalRatingPropsType) => {
-  const { opened, currentRatingValue, saveRating, closeRating, openRating } =
-    useRating(id);
+  const { opened, rating, saveRating, closeRating, openRating } = useRating(id);
 
   return (
     <Group gap="xs" wrap="nowrap">
@@ -27,14 +26,17 @@ const CardModal = memo(({ title, id }: ModalRatingPropsType) => {
         classNames={classes}
         opened={opened}
         onClose={closeRating}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
         title="Your rating"
         centered
         size="sm"
         padding="xlg"
         radius="md">
-        <ModalForm title={title} rating={currentRatingValue} submit={saveRating} />
+        <ModalForm title={title} rating={rating} submit={saveRating} />
       </Modal>
-      <VoteAverage value={currentRatingValue} onClick={openRating}>
+      <VoteAverage value={rating} onClick={openRating}>
         <StarRated />
       </VoteAverage>
     </Group>

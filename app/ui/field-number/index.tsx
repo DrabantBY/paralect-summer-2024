@@ -2,13 +2,13 @@ import { memo } from 'react';
 import { NumberInput } from '@mantine/core';
 import classes from './styles.module.css';
 
-type FormFieldNumberPropsType = {
+type FieldNumberPropsType = {
   name: string;
   label?: string;
   placeholder: string;
 };
 
-const FormFieldNumber = memo((props: FormFieldNumberPropsType) => {
+const FieldNumber = memo((props: FieldNumberPropsType) => {
   return (
     <NumberInput
       classNames={classes}
@@ -22,4 +22,4 @@ const FormFieldNumber = memo((props: FormFieldNumberPropsType) => {
   );
 });
 
-export default FormFieldNumber;
+export default FieldNumber;
