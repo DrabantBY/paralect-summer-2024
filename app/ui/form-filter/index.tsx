@@ -5,7 +5,6 @@ import { Group } from '@mantine/core';
 import FieldSelect from '../field-select';
 import FieldNumber from '../field-number';
 import BtnReset from '../btn-reset/btn-reset';
-import formFilterAction from '@/app/lib/action/form-filter-action';
 import type { MoviesPageSearchParamsType } from '@/app/types/page';
 import classes from './styles.module.css';
 
@@ -17,7 +16,7 @@ type FormFilterPropsType = {
 
 const FormFilter = memo(({ genres, searchParams, years }: FormFilterPropsType) => {
   return (
-    <form className={classes.form} action={formFilterAction}>
+    <form className={classes.form}>
       <FieldSelect
         defaultValue={searchParams?.with_genres ?? null}
         name="with_genres"
@@ -50,8 +49,6 @@ const FormFilter = memo(({ genres, searchParams, years }: FormFilterPropsType) =
       </Group>
 
       <BtnReset label="Reset filters" disabled={false} />
-
-      <button type="submit">submit</button>
     </form>
   );
 });
