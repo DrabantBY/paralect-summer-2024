@@ -14,4 +14,5 @@ export type MoviePageDataType = {
   genreData: { value: string; label: string }[];
   yearsData: string[];
   isEmptyMovies: boolean;
+  total: number;
 };

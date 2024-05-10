@@ -19,7 +19,7 @@ export default async function MoviesPage({
     return null;
   }
 
-  const { movies, genreData, yearsData, isEmptyMovies } = data;
+  const { movies, genreData, yearsData, isEmptyMovies, total } = data;
 
   const suspenseKey = new URLSearchParams(searchParams);
 
@@ -34,7 +34,7 @@ export default async function MoviesPage({
           <>
             <MovieList movies={movies} />
             <Group justify="flex-end" mt="xxl">
-              <Paginator total={Number(process.env.totalPages)} />
+              <Paginator total={total} />
             </Group>
           </>
         )}

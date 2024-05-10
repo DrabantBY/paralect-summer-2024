@@ -15,13 +15,18 @@ const fetchMoviesPage = async (
 
   const isEmptyMovies = data.results.length === 0;
 
+  const total =
+    data.total_pages > Number(process.env.totalPages)
+      ? Number(process.env.totalPages)
+      : data.total_pages;
+
   const movies = isEmptyMovies ? [] : formatMovies(data.results, genres);
 
   const genreData = formatGenreData(genres);
 
   const yearsData = Array.from({ length: 25 }, (_, i) => `${2000 + i}`);
 
-  return { movies, genreData, yearsData, isEmptyMovies };
+  return { movies, genreData, yearsData, isEmptyMovies, total };
 };
 
 export default fetchMoviesPage;
