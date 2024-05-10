@@ -21,6 +21,16 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/movies',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
