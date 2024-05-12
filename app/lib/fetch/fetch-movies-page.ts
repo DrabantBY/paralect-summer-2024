@@ -1,13 +1,19 @@
-import fetchMovieList from './fetch-movie-list';
-import fetchGenres from './fetch-genres';
-import formatGenreData from '../utils/format-genre-data';
-import formatMovies from '../utils/format-movies';
-import type { MoviePageDataType, MoviesPageSearchParamsType } from '@/app/types/page';
+import fetchMovieList from "./fetch-movie-list";
+import fetchGenres from "./fetch-genres";
+import formatGenreData from "../utils/format-genre-data";
+import formatMovies from "../utils/format-movies";
+import type {
+  MoviePageDataType,
+  MoviesPageSearchParamsType,
+} from "@/app/types/page";
 
 const fetchMoviesPage = async (
   searchParams: MoviesPageSearchParamsType
 ): Promise<null | MoviePageDataType> => {
-  const [genres, data] = await Promise.all([fetchGenres(), fetchMovieList(searchParams)]);
+  const [genres, data] = await Promise.all([
+    fetchGenres(),
+    fetchMovieList(searchParams),
+  ]);
 
   if (!genres || !data) {
     return null;
@@ -15,10 +21,7 @@ const fetchMoviesPage = async (
 
   const isEmptyMovies = data.results.length === 0;
 
-  const total =
-    data.total_pages > Number(process.env.totalPages)
-      ? Number(process.env.totalPages)
-      : data.total_pages;
+  const total = data.total_pages > 500 ? 500 : data.total_pages;
 
   const movies = isEmptyMovies ? [] : formatMovies(data.results, genres);
 

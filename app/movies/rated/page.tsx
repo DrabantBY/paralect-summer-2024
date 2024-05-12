@@ -1,9 +1,14 @@
-import EmptyState from '@/app/ui/empty-state';
+import EmptyState from "@/app/ui/empty-state";
+import RatedList from "@/app/ui/rated-list";
 
-export default async function RatedPage() {
-  return <EmptyState />;
-
-  // <Center mt={rem(40)}>
-  //   <Title fz="xl">Rated movies</Title>
-  // </Center>
+export default async function RatedPage({
+  searchParams,
+}: {
+  searchParams: { page: string };
+}) {
+  return (
+    <RatedList page={searchParams?.page ?? "1"}>
+      <EmptyState />
+    </RatedList>
+  );
 }

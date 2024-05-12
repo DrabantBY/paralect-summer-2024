@@ -1,22 +1,24 @@
-import { memo } from 'react';
-import { NumberInput } from '@mantine/core';
-import useFieldSubmit from '@/app/lib/hooks/use-filed-submit';
-import classes from './styles.module.css';
+import { memo } from "react";
+import { NumberInput } from "@mantine/core";
+import useNumber from "@/app/lib/hooks/use-number";
+import classes from "./styles.module.css";
 
 type FieldNumberPropsType = {
-  defaultValue?: string;
+  defaultValue: string;
   name: string;
   label?: string;
   placeholder: string;
 };
 
 const FieldNumber = memo((props: FieldNumberPropsType) => {
-  const submit = useFieldSubmit(props.name);
+  const { value, submit } = useNumber(props.name, props.defaultValue);
+
   return (
     <NumberInput
       classNames={classes}
-      onChange={submit}
       {...props}
+      value={value}
+      onChange={submit}
       size="md"
       radius="md"
       min={0}

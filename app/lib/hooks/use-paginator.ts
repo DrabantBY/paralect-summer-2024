@@ -1,4 +1,4 @@
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 const usePaginator = () => {
   const { replace } = useRouter();
@@ -7,12 +7,12 @@ const usePaginator = () => {
 
   const pathName = usePathname();
 
-  const page = Number(searchParams.get('page') ?? '1');
+  const page = Number(searchParams.get("page") ?? "1");
 
   const urlSearchParams = new URLSearchParams(searchParams);
 
   const setPage = (value: number) => {
-    urlSearchParams.set('page', `${value}`);
+    urlSearchParams.set("page", `${value}`);
 
     const url = `${pathName}?${urlSearchParams.toString()}`;
 
