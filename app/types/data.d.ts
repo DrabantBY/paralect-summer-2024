@@ -2,7 +2,7 @@ export type MovieDataType = {
   id: number;
   vote_count: number;
   genre_ids: number[];
-  poster_path: string;
+  poster_path: string | null;
   vote_average: number;
   release_date: string;
   original_title: string;
@@ -23,7 +23,7 @@ export type GenreDataType = {
 export type CompanyProductionDataType = {
   id: number;
   name: string;
-  logo_path: string;
+  logo_path: string | null;
   origin_country: string;
 };
 
@@ -51,7 +51,7 @@ export type VideoDataType = {
   published_at: string;
 };
 
-export type MovieDetailsDataType = Omit<MovieDataType, 'genre_ids'> & {
+export type MovieDetailsDataType = Omit<MovieDataType, "genre_ids"> & {
   budget: number;
   revenue: number;
   runtime: number;
@@ -82,6 +82,6 @@ export type MovieCardDatatype = {
   rating?: number;
   release_date?: string;
   budget?: number;
-  revenue?: number; //gross
-  runtime?: number;
+  revenue?: number;
+  runtime?: string;
 };

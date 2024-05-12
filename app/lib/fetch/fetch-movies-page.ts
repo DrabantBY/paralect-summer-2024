@@ -9,7 +9,7 @@ import type {
 
 const fetchMoviesPage = async (
   searchParams: MoviesPageSearchParamsType
-): Promise<null | MoviePageDataType> => {
+): Promise<MoviePageDataType | null> => {
   const [genres, data] = await Promise.all([
     fetchGenres(),
     fetchMovieList(searchParams),

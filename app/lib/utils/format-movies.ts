@@ -1,5 +1,9 @@
-import formatGenreIds from './format-genre-ids';
-import type { GenreDataType, MovieCardDatatype, MovieDataType } from '@/app/types/data';
+import formatGenreIds from "./format-genre-ids";
+import type {
+  GenreDataType,
+  MovieCardDatatype,
+  MovieDataType,
+} from "@/app/types/data";
 
 const formatMovies = (
   movies: MovieDataType[],
@@ -7,7 +11,7 @@ const formatMovies = (
 ): MovieCardDatatype[] => {
   return movies.map((movie) => ({
     id: movie.id,
-    genres: formatGenreIds(movie.genre_ids, genres),
+    genres: formatGenreIds(genres, movie.genre_ids),
     vote_count: movie.vote_count,
     poster_path: `${process.env.baseImgUrl}/${process.env.posterSmWidth}${movie.poster_path}`,
     vote_average: movie.vote_average,

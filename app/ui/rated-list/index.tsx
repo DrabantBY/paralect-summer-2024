@@ -13,32 +13,34 @@ import {
 import MovieCard from "../movie-card";
 import Paginator from "../paginator";
 import useRated from "@/app/lib/hooks/use-rated";
-import FieldSearch from "../field-search";
+import FormSearch from "../form-search";
 
 type RatedListPropsType = {
-  children: ReactNode;
-  page: string;
+  children: ReactNode[];
 };
 
-const RatedList = memo(({ children, page }: RatedListPropsType) => {
-  const { empty, pages, movies } = useRated(Number(page));
+const RatedList = memo(({ children }: RatedListPropsType) => {
+  const { empty, pages, movies, search } = useRated();
 
   return empty ? (
-    children
+    children[0]
   ) : (
     <Container my={rem(40)} px="xmd" size={rem(1000)}>
-      <Group justify="space-between" gap="md">
+      <Group justify="space-between" gap="md" mb={rem(40)}>
         <Title fz="xl">Rated movies</Title>
-        <FieldSearch />
+        <FormSearch defaultValue={search} />
       </Group>
 
-      <SimpleGrid cols={2} spacing="xlg" mt={rem(40)} mb="xxl">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </SimpleGrid>
-
-      <Center>
+      {movies.length === 0 ? (
+        children[1]
+      ) : (
+        <SimpleGrid cols={2} spacing="xlg">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} details={false} />
+          ))}
+        </SimpleGrid>
+      )}
+      <Center mt="xxl">
         <Paginator total={pages} />
       </Center>
     </Container>

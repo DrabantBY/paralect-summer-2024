@@ -1,15 +1,21 @@
 import { memo } from "react";
 import { TextInput, rem } from "@mantine/core";
 import { SearchIcon } from "../icons";
-import classes from "./styles.module.css";
 import BtnLink from "../btn-link";
+import formSearchAction from "@/app/lib/action/form-search-action";
+import classes from "./styles.module.css";
 
-const FieldSearch = memo(() => {
+type FormSearchPropsType = {
+  defaultValue: string;
+};
+
+const FormSearch = memo((props: FormSearchPropsType) => {
   return (
-    <form>
+    <form action={formSearchAction}>
       <TextInput
         classNames={classes}
         name="search"
+        {...props}
         miw={rem(490)}
         radius="md"
         placeholder="Search movie title"
@@ -22,7 +28,7 @@ const FieldSearch = memo(() => {
             paddingInlineStart: "var(--mantine-spacing-lg)",
           },
         }}
-        rightSection={<BtnLink label="search" search />}
+        rightSection={<BtnLink label="search" type="submit" search />}
         rightSectionWidth="auto"
         rightSectionProps={{
           style: {
@@ -34,4 +40,4 @@ const FieldSearch = memo(() => {
   );
 });
 
-export default FieldSearch;
+export default FormSearch;

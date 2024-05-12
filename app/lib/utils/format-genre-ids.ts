@@ -1,17 +1,23 @@
-import type { GenreDataType } from '@/app/types/data';
+import type { GenreDataType } from "@/app/types/data";
 
-const formatGenreIds = (ids: number[], genre: GenreDataType[]): string => {
-  const names = ids.reduce((acc, id) => {
-    const foundGenre = genre.find((genre) => genre.id === id);
+const formatGenreIds = (genres: GenreDataType[], ids?: number[]): string => {
+  let names: string[];
 
-    if (foundGenre) {
-      acc.push(foundGenre.name);
-    }
+  if (ids) {
+    names = ids.reduce((acc, id) => {
+      const foundGenre = genres.find((genre) => genre.id === id);
 
-    return acc;
-  }, [] as string[]);
+      if (foundGenre) {
+        acc.push(foundGenre.name);
+      }
 
-  return names.join(', ');
+      return acc;
+    }, [] as string[]);
+  } else {
+    names = genres.map(({ id, name }) => name);
+  }
+
+  return names.join(", ");
 };
 
 export default formatGenreIds;

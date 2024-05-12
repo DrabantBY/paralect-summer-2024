@@ -1,25 +1,31 @@
-import { memo } from 'react';
-import Link from 'next/link';
-import { Paper, Text, Group, Stack } from '@mantine/core';
-import VoteAverage from './vote-average';
-import VoteCount from './vote-count';
-import CardDetails from './card-details';
-import CardImage from './card-image';
-import CardHeader from './card-header';
-import { StarActivated } from './card-star';
-import type { MovieCardDatatype } from '@/app/types/data';
+import { memo } from "react";
+import Link from "next/link";
+import { Paper, Text, Group, Stack } from "@mantine/core";
+import VoteAverage from "./vote-average";
+import VoteCount from "./vote-count";
+import CardDetails from "./card-details";
+import CardImage from "./card-image";
+import CardHeader from "./card-header";
+import { StarActivated } from "./card-star";
+import type { MovieCardDatatype } from "@/app/types/data";
 
 type MovieCardPropsType = {
   movie: MovieCardDatatype;
+  details: boolean;
 };
 
-export const MovieCard = memo(({ movie }: MovieCardPropsType) => {
+export const MovieCard = memo(({ movie, details }: MovieCardPropsType) => {
   return (
     <Paper radius="lg" p="xxl" component={Link} href={`/movies/${movie.id}`}>
-      <Group align="flex-start" wrap="nowrap" h="100%" gap="xlg">
-        <CardImage src={movie.poster_path} />
+      <Group align="flex-start" wrap="nowrap" gap="xlg">
+        <CardImage src={movie.poster_path} details={details} />
 
-        <Stack justify="space-between" h="100%" gap="sm" w="100%">
+        <Stack
+          justify="space-between"
+          mih={!details ? 170 : 352}
+          gap="md"
+          w="100%"
+        >
           <Stack gap="md">
             <CardHeader movie={movie} />
 
@@ -36,7 +42,14 @@ export const MovieCard = memo(({ movie }: MovieCardPropsType) => {
             </Group>
           </Stack>
 
-          <CardDetails genres={movie.genres} />
+          <CardDetails
+            genres={movie.genres}
+            duration={movie.runtime}
+            premiere={movie.release_date}
+            budget={movie.budget}
+            gross={movie.revenue}
+            details={details}
+          />
         </Stack>
       </Group>
     </Paper>

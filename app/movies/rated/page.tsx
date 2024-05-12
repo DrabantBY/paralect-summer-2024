@@ -1,14 +1,12 @@
+import EmptyData from "@/app/ui/empty-data";
 import EmptyState from "@/app/ui/empty-state";
 import RatedList from "@/app/ui/rated-list";
 
-export default async function RatedPage({
-  searchParams,
-}: {
-  searchParams: { page: string };
-}) {
+export default async function RatedPage() {
   return (
-    <RatedList page={searchParams?.page ?? "1"}>
+    <RatedList>
       <EmptyState />
+      <EmptyData />
     </RatedList>
   );
 }
