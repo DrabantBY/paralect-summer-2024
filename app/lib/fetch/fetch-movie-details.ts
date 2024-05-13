@@ -15,6 +15,8 @@ const fetchMovieDetails = async (
 
   const data: FetchMovieDetailsDataType = await response.json();
 
+  console.log(data);
+
   return formatMovieDetails(data);
 };
 

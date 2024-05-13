@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { ComboboxData, Select } from "@mantine/core";
+import { ComboboxData, Select, rem } from "@mantine/core";
 import { ArrowDownIcon, ArrowUpIcon } from "../icons";
 import useSelect from "@/app/lib/hooks/use-select";
 import classes from "./styles.module.css";
@@ -16,6 +16,7 @@ const FieldSelect = memo((props: FieldSelectPropsType) => {
   const { focused, focus, blur, submit } = useSelect(props.name);
   return (
     <Select
+      miw={rem(284)}
       classNames={classes}
       onChange={submit}
       onFocus={focus}

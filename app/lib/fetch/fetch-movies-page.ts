@@ -29,7 +29,16 @@ const fetchMoviesPage = async (
 
   const yearsData = Array.from({ length: 25 }, (_, i) => `${2000 + i}`);
 
-  return { movies, genreData, yearsData, isEmptyMovies, total };
+  const sortData = [
+    { value: "popularity.desc", label: "Most popular" },
+    { value: "popularity.asc", label: "Least popular" },
+    { value: "vote_average.desc", label: "Most rated" },
+    { value: "vote_average.asc", label: "Least rated" },
+    { value: "vote_count.desc", label: "Most voted" },
+    { value: "vote_count.asc", label: "Least voted" },
+  ];
+
+  return { movies, genreData, yearsData, sortData, isEmptyMovies, total };
 };
 
 export default fetchMoviesPage;

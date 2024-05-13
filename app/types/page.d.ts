@@ -20,6 +20,7 @@ export type MovieDetailsPageParamsType = {
 export type MoviePageDataType = {
   movies: MovieCardDatatype[];
   genreData: { value: string; label: string }[];
+  sortData: { value: string; label: string }[];
   yearsData: string[];
   isEmptyMovies: boolean;
   total: number;

@@ -15,7 +15,7 @@ const formatMovies = (
     vote_count: movie.vote_count,
     poster_path: `${process.env.baseImgUrl}/${process.env.posterSmWidth}${movie.poster_path}`,
     vote_average: movie.vote_average,
-    release_year: movie.release_date.slice(0, 4),
+    release_year: movie.release_date?.slice(0, 4) ?? "",
     original_title: movie.original_title,
   }));
 };

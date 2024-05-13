@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { NumberInput } from "@mantine/core";
+import { NumberInput, rem } from "@mantine/core";
 import useNumber from "@/app/lib/hooks/use-number";
 import classes from "./styles.module.css";
 
@@ -15,6 +15,7 @@ const FieldNumber = memo((props: FieldNumberPropsType) => {
 
   return (
     <NumberInput
+      maw={rem(138)}
       classNames={classes}
       {...props}
       value={value}
