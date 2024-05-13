@@ -33,3 +33,8 @@ export type MovieDetailsPageDataType = {
     description: string;
   };
 };
+
+export type RatedPageSearchParamsType = {
+  page?: string;
+  search?: string;
+};

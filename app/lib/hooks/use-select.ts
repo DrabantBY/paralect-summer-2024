@@ -1,4 +1,4 @@
-import { useState, useCallback, use } from "react";
+import { useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const useSelect = (name: string) => {
@@ -12,6 +12,7 @@ const useSelect = (name: string) => {
     }
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set(name, `${value}`);
+    newSearchParams.set("page", "1");
     const route = `/movies?${newSearchParams.toString()}`;
 
     replace(route);

@@ -42,7 +42,12 @@ const formatMovieDetails = (
 
   const description = overview ?? "";
 
+  production_companies.forEach((company) => {
+    company.logo_path = `${process.env.baseImgUrl}/${process.env.logoSize}${company.logo_path}`;
+  });
+
   const production = production_companies;
+
   const trailer = videos.results[0];
 
   return { card, video: { description, production, trailer } };

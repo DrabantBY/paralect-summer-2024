@@ -1,4 +1,4 @@
-import { RatedPageSearchParamsType } from "@/app/types/page";
+import type { RatedPageSearchParamsType } from "@/app/types/page";
 
 const formatSearchFormData = (search: string): string => {
   const params: RatedPageSearchParamsType = search

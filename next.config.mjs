@@ -5,6 +5,7 @@ const nextConfig = {
     baseImgUrl: "https://image.tmdb.org/t/p",
     posterSmWidth: "w154",
     posterLgWidth: "w300",
+    logoSize: "w45",
   },
 
   images: {

@@ -1,5 +1,6 @@
 import { memo } from "react";
-import { Divider, Paper, Title, Text } from "@mantine/core";
+import { Divider, Paper, Title, Text, Stack } from "@mantine/core";
+import MovieProducer from "./movie-producer";
 import type {
   CompanyProductionDataType,
   VideoDataType,
@@ -13,20 +14,21 @@ type MovieTrailerPropsType = {
 
 const MovieTrailer = memo(
   ({ trailer, production, description }: MovieTrailerPropsType) => {
-    console.log(trailer);
+    console.log(production);
     return (
       <Paper radius="lg" p="xxl">
-        {/* <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/CEArEbO25lE"
-          allowFullScreen
-        ></iframe> */}
         {trailer ? (
           <>
             <Title size="md" fw="600" mb="xlg">
               Trailer
             </Title>
+            <iframe
+              id={trailer.id}
+              width="500"
+              height="317"
+              src={`https://www.youtube.com/embed/${trailer.key}`}
+              allowFullScreen
+            ></iframe>
             <Divider bg="gray.3" my="xl" />
           </>
         ) : null}
@@ -42,10 +44,18 @@ const MovieTrailer = memo(
             <Divider bg="gray.3" my="xl" />
           </>
         ) : null}
-
-        <Title size="md" fw="600" mb="xlg">
-          Production
-        </Title>
+        {production.length === 0 ? null : (
+          <>
+            <Title size="md" fw="600" mb="xlg">
+              Production
+            </Title>
+            <Stack gap="lg">
+              {production.map(({ id, name, logo_path }) => (
+                <MovieProducer key={id} title={name} src={logo_path} />
+              ))}
+            </Stack>
+          </>
+        )}
       </Paper>
     );
   }
