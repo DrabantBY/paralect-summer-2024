@@ -3,7 +3,7 @@ import { Container, Group, Title, rem } from "@mantine/core";
 import MovieList from "../ui/movie-list";
 import Paginator from "../ui/paginator";
 import Spinner from "../ui/spinner";
-import EmptyData from "../ui/empty-data";
+import EmptyData from "../ui/empty/empty-data";
 import FormFilter from "../ui/form-filter";
 import fetchMoviesPage from "../lib/fetch/fetch-movies-page";
 import type { MoviesPageSearchParamsType } from "../types/page";

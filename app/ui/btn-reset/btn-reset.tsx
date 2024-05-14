@@ -1,6 +1,6 @@
-import { memo } from 'react';
-import { Button } from '@mantine/core';
-import classes from './styles.module.css';
+import { memo } from "react";
+import { Button, rem } from "@mantine/core";
+import classes from "./styles.module.css";
 
 type BtnResetPropsType = {
   label: string;
@@ -14,11 +14,12 @@ const BtnReset = memo(({ label, onClick, disabled }: BtnResetPropsType) => {
       classNames={classes}
       variant="transparent"
       miw="fit-content"
-      h={42}
+      h={rem(42)}
       size="xs"
       color="purple.5"
       disabled={disabled}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {label}
     </Button>
   );

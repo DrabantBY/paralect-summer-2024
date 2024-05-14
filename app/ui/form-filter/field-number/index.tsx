@@ -1,24 +1,23 @@
 import { memo } from "react";
 import { NumberInput, rem } from "@mantine/core";
-import useNumber from "@/app/lib/hooks/use-number";
+import useNumberField from "@/app/lib/hooks/use-number-field";
 import classes from "./styles.module.css";
 
 type FieldNumberPropsType = {
-  defaultValue: string;
   name: string;
   label?: string;
   placeholder: string;
 };
 
 const FieldNumber = memo((props: FieldNumberPropsType) => {
-  const { value, submit } = useNumber(props.name, props.defaultValue);
+  const { value, submit } = useNumberField(props.name);
 
   return (
     <NumberInput
       maw={rem(138)}
       classNames={classes}
-      {...props}
       value={value}
+      {...props}
       onChange={submit}
       size="md"
       radius="md"

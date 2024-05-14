@@ -1,5 +1,5 @@
-import Empty from '../empty';
-import emptyDataImage from '@/public/empty-data.png';
+import Empty from "..";
+import emptyDataImage from "@/public/empty-data.png";
 
 const EmptyData = () => {
   return (

@@ -1,5 +1,5 @@
 import { Box } from "@mantine/core";
-import Empty from "../empty";
+import Empty from "../../empty";
 import emptyStateImage from "@/public/empty-state.png";
 
 const EmptyState = () => {
