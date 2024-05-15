@@ -1,3 +1,4 @@
+import "server-only";
 import formatMovieDetails from "../utils/format-movie-details";
 import type { FetchMovieDetailsDataType } from "@/app/types/fetch";
 import type { MovieDetailsPageDataType } from "@/app/types/page";
@@ -14,8 +15,6 @@ const fetchMovieDetails = async (
   }
 
   const data: FetchMovieDetailsDataType = await response.json();
-
-  console.log(data);
 
   return formatMovieDetails(data);
 };

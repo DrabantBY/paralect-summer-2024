@@ -1,5 +1,6 @@
-import type { GenreDataType } from '@/app/types/data';
-import type { FetchGenreListDataType } from '@/app/types/fetch';
+import "server-only";
+import type { GenreDataType } from "@/app/types/data";
+import type { FetchGenreListDataType } from "@/app/types/fetch";
 
 const fetchGenres = async (): Promise<GenreDataType[] | null> => {
   const response = await fetch(

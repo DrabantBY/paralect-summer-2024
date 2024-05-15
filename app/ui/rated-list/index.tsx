@@ -20,7 +20,7 @@ type RatedListPropsType = {
 };
 
 const RatedList = memo(({ children }: RatedListPropsType) => {
-  const { empty, pages, movies, search } = useRated();
+  const { empty, pages, movies, search, navigate } = useRated();
 
   return empty ? (
     children[0]
@@ -36,7 +36,12 @@ const RatedList = memo(({ children }: RatedListPropsType) => {
       ) : (
         <SimpleGrid cols={2} spacing="xlg">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} details={false} />
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              details={false}
+              handler={navigate}
+            />
           ))}
         </SimpleGrid>
       )}

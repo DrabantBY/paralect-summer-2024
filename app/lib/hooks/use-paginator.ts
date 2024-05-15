@@ -27,7 +27,12 @@ const usePaginator = () => {
     setPage(page - 1);
   };
 
-  return { page, setPage, setNextPage, setPrevPage };
+  return {
+    value: page,
+    onChange: setPage,
+    onNextPage: setNextPage,
+    onPreviousPage: setPrevPage,
+  };
 };
 
 export default usePaginator;

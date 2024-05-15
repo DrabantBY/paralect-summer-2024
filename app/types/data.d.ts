@@ -77,7 +77,6 @@ export type MovieCardDatatype = {
   poster_path: string;
   release_year: string;
   vote_average: number;
-  release_date: string;
   original_title: string;
   rating?: number;
   release_date?: string;

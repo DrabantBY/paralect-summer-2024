@@ -1,23 +1,24 @@
-'use client';
+"use client";
 
-import { memo } from 'react';
-import { Pagination } from '@mantine/core';
-import usePaginator from '@/app/lib/hooks/use-paginator';
+import { memo } from "react";
+import { Pagination } from "@mantine/core";
+import usePaginator from "@/app/lib/hooks/use-paginator";
 
 const styles = {
-  control: { fontSize: 'var(--mantine-font-size-sm)' },
+  control: { fontSize: "var(--mantine-font-size-sm)" },
 };
 
-const Paginator = memo(({ total }: { total: number }) => {
-  const { page, setPage, setPrevPage, setNextPage } = usePaginator();
+type PaginatorPropsType = {
+  total: number;
+};
+
+const Paginator = memo((props: PaginatorPropsType) => {
+  const pagination = usePaginator();
 
   return (
     <Pagination
-      value={page}
-      onChange={setPage}
-      onNextPage={setNextPage}
-      onPreviousPage={setPrevPage}
-      total={total}
+      {...props}
+      {...pagination}
       gap="md"
       size="md"
       radius="sm"

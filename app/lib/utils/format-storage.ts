@@ -1,4 +1,4 @@
-import type { MovieCardDatatype } from '@/app/types/data';
+import type { MovieCardDatatype } from "@/app/types/data";
 
 const checkMovie = (movie: MovieCardDatatype, id: number, rating: number) => {
   if (movie.id === id) {
@@ -19,7 +19,22 @@ const addMovie = (
   currentMovie: MovieCardDatatype,
   rating: number
 ) => {
-  const newMovieList = [...movies, { ...currentMovie, rating }];
+  const newMovie = { ...currentMovie, rating };
+
+  if ("budget" in newMovie) {
+    delete newMovie.budget;
+  }
+  if ("revenue" in newMovie) {
+    delete newMovie.revenue;
+  }
+  if ("runtime" in newMovie) {
+    delete newMovie.runtime;
+  }
+  if ("release_date" in newMovie) {
+    delete newMovie.release_date;
+  }
+
+  const newMovieList = [...movies, newMovie];
 
   return newMovieList;
 };

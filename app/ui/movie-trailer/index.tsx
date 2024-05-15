@@ -14,7 +14,6 @@ type MovieTrailerPropsType = {
 
 const MovieTrailer = memo(
   ({ trailer, production, description }: MovieTrailerPropsType) => {
-    console.log(production);
     return (
       <Paper radius="lg" p="xxl">
         {trailer ? (

@@ -1,6 +1,8 @@
+import dynamic from "next/dynamic";
 import EmptyData from "@/app/ui/empty/empty-data";
 import EmptyState from "@/app/ui/empty/empty-state";
-import RatedList from "@/app/ui/rated-list";
+
+const RatedList = dynamic(() => import("@/app/ui/rated-list"), { ssr: false });
 
 export default async function RatedPage() {
   return (

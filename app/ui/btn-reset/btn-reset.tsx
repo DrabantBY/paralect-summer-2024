@@ -8,7 +8,7 @@ type BtnResetPropsType = {
   disabled: boolean;
 };
 
-const BtnReset = memo(({ label, onClick, disabled }: BtnResetPropsType) => {
+const BtnReset = memo(({ label, ...other }: BtnResetPropsType) => {
   return (
     <Button
       classNames={classes}
@@ -17,8 +17,7 @@ const BtnReset = memo(({ label, onClick, disabled }: BtnResetPropsType) => {
       h={rem(42)}
       size="xs"
       color="purple.5"
-      disabled={disabled}
-      onClick={onClick}
+      {...other}
     >
       {label}
     </Button>
