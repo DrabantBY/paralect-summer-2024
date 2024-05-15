@@ -30,15 +30,19 @@ const useRated = () => {
     if (movies.length === 1) {
       const newSearchParams = new URLSearchParams(searchParams);
 
-      const newPage = Number(page) - 1;
+      if (newSearchParams.has("page")) {
+        const newPage = Number(page) - 1;
 
-      if (newPage === 0) {
-        newSearchParams.delete("page");
+        if (newPage === 0) {
+          newSearchParams.delete("page");
+        } else {
+          newSearchParams.set("page", `${newPage}`);
+        }
+
+        replace(`/movies/rated?${newSearchParams.toString()}`);
       } else {
-        newSearchParams.set("page", `${newPage}`);
+        refresh();
       }
-
-      replace(`/movies/rated?${newSearchParams.toString()}`);
     } else {
       refresh();
     }

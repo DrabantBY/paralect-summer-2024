@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Breadcrumbs, Container, Stack, rem } from "@mantine/core";
 import MovieCard from "@/app/ui/movie-card";
 import MovieTrailer from "@/app/ui/movie-trailer";
@@ -12,7 +13,7 @@ export default async function MovieDetailsPage({
   const data = await fetchMovieDetails(params.id);
 
   if (!data) {
-    return null;
+    notFound();
   }
 
   const { card, video } = data;

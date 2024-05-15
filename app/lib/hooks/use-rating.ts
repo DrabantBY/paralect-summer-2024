@@ -30,10 +30,10 @@ const useRating = (movie: MovieCardDatatype, handler?: () => void) => {
 
       localStorage.setItem("ratedMovies", JSON.stringify(newMovieList));
 
-      closeRating();
-
       if (newMovieList.length < ratedMovies.length && handler) {
         handler();
+      } else {
+        closeRating();
       }
     },
     [closeRating, handler, movie, ratedMovies]

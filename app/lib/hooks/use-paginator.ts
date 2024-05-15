@@ -16,7 +16,7 @@ const usePaginator = () => {
 
     const url = `${pathName}?${urlSearchParams.toString()}`;
 
-    replace(url);
+    replace(url, { scroll: false });
   };
 
   const setNextPage = () => {

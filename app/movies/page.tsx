@@ -7,6 +7,7 @@ import EmptyData from "../ui/empty/empty-data";
 import FormFilter from "../ui/form-filter";
 import fetchMoviesPage from "../lib/fetch/fetch-movies-page";
 import type { MoviesPageSearchParamsType } from "../types/page";
+import { notFound } from "next/navigation";
 
 export default async function MoviesPage({
   searchParams,
@@ -16,7 +17,7 @@ export default async function MoviesPage({
   const data = await fetchMoviesPage(searchParams);
 
   if (!data) {
-    return null;
+    notFound();
   }
 
   const { movies, genreData, yearsData, sortData, isEmptyMovies, total } = data;
