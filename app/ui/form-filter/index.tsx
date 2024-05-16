@@ -1,13 +1,14 @@
 "use client";
 
 import { memo } from "react";
+import { useRouter } from "next/navigation";
 import { Group, rem } from "@mantine/core";
+import FieldMulti from "./field-multi";
 import FieldSelect from "./field-select";
 import FieldNumber from "./field-number";
 import BtnReset from "../btn-reset/btn-reset";
-import type { MoviesPageSearchParamsType } from "@/app/types/page";
-import { useRouter } from "next/navigation";
 import checkIsDisabled from "@/app/lib/utils/check-is-disabled";
+import type { MoviesPageSearchParamsType } from "@/app/types/page";
 
 type FormFilterPropsType = {
   searchParams: MoviesPageSearchParamsType;
@@ -24,8 +25,8 @@ const FormFilter = memo(
     return (
       <form>
         <Group align="end" mb="xxl" justify="space-between" wrap="nowrap">
-          <FieldSelect
-            defaultValue={searchParams["with_genres"] ?? null}
+          <FieldMulti
+            defaultValue={searchParams["with_genres"]?.split(",")}
             name="with_genres"
             label="Genres"
             placeholder="Select genre"

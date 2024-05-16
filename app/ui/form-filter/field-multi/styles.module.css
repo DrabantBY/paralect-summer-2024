@@ -1,0 +1,67 @@
+.label {
+  margin-block-end: var(--mantine-spacing-md);
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 700;
+}
+
+.input {
+  font-size: var(--mantine-font-size-xs);
+  padding-inline-start: var(--mantine-spacing-lg);
+  padding-block: var(--mantine-spacing-md);
+  border: 1px solid var(--mantine-color-gray-3);
+
+  &::placeholder {
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-gray-5);
+  }
+
+  &:hover,
+  &[data-expanded],
+  &:focus {
+    border: 1px solid var(--mantine-color-purple-5);
+  }
+}
+
+.dropdown {
+  border-radius: var(--mantine-radius-md);
+}
+
+.option {
+  height: 36px;
+  font-size: var(--mantine-font-size-xs);
+  border-radius: var(--mantine-radius-md);
+
+  &:hover {
+    background-color: var(--mantine-color-purple-1);
+  }
+
+  &[data-checked] {
+    background-color: var(--mantine-color-purple-5);
+    color: var(--mantine-color-white);
+  }
+}
+
+.pill {
+  font-family: var(--font-inter);
+  padding-inline: 0;
+  padding-block: 0;
+  margin-block-end: -0.6px;
+
+  background-color: transparent;
+
+  button {
+    display: none;
+  }
+
+  &:has(+ &)::after {
+    content: ",";
+  }
+}
+
+.pillsList {
+  gap: var(--mantine-spacing-sm);
+
+  span + input {
+    display: none;
+  }
+}

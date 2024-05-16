@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const useSelectField = (name: string) => {
+const useSelectMulti = (name: string) => {
   const [focused, setFocus] = useState<boolean>(false);
 
   const focus = useCallback(() => {
@@ -16,15 +16,15 @@ const useSelectField = (name: string) => {
 
   const { replace } = useRouter();
 
-  const submit = (value: string | null) => {
+  const submit = (value: string[]) => {
     const newSearchParams = new URLSearchParams(searchParams);
 
-    if (value) {
-      newSearchParams.set(name, value);
+    if (value.length > 0) {
+      newSearchParams.set(name, value.join());
       newSearchParams.set("page", "1");
     }
 
-    if (!value && newSearchParams.has(name)) {
+    if (value.length === 0 && newSearchParams.has(name)) {
       newSearchParams.delete(name);
     }
 
@@ -36,4 +36,4 @@ const useSelectField = (name: string) => {
   return { focused, focus, blur, submit };
 };
 
-export default useSelectField;
+export default useSelectMulti;

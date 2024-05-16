@@ -27,22 +27,18 @@ const useRated = () => {
   let movies = foundMovies.slice((page - 1) * 4, page * 4);
 
   const navigate = () => {
-    if (movies.length === 1) {
+    if (movies.length === 1 && searchParams.has("page")) {
       const newSearchParams = new URLSearchParams(searchParams);
 
-      if (newSearchParams.has("page")) {
-        const newPage = Number(page) - 1;
+      const newPage = Number(page) - 1;
 
-        if (newPage === 0) {
-          newSearchParams.delete("page");
-        } else {
-          newSearchParams.set("page", `${newPage}`);
-        }
-
-        replace(`/movies/rated?${newSearchParams.toString()}`);
+      if (newPage === 0) {
+        newSearchParams.delete("page");
       } else {
-        refresh();
+        newSearchParams.set("page", `${newPage}`);
       }
+
+      replace(`/movies/rated?${newSearchParams.toString()}`);
     } else {
       refresh();
     }

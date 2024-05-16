@@ -32,20 +32,18 @@ const FieldSelect = memo((props: FieldSelectPropsType) => {
           <ArrowDownIcon color="var(--mantine-color-gray-5)" size={24} />
         )
       }
-
-      // scrollAreaProps={{
-
-      //   scrollbarSize: 7,
-      //   offsetScrollbars: false,
-      //   type: 'always',
-      //   styles: {
-      //     thumb: {
-      //       height: '24px',
-      //       backgroundColor: 'var(--mantine-color-gray-5)',
-      //       borderRadius: '1.25rem',
-      //     },
-      //   },
-      // }}
+      scrollAreaProps={{
+        // scrollbarSize: 7,
+        offsetScrollbars: false,
+        type: "always",
+        // styles: {
+        //   thumb: {
+        //     height: '24px',
+        //     backgroundColor: 'var(--mantine-color-gray-5)',
+        //     borderRadius: '1.25rem',
+        //   },
+        // },
+      }}
     />
   );
 });
