@@ -20,7 +20,6 @@ const FieldMulti = memo((props: FieldMultiPropsType) => {
     <MultiSelect
       className={focused ? `${inter.variable} focus` : inter.variable}
       classNames={classes}
-      maxValues={3}
       {...props}
       miw={rem(284)}
       withCheckIcon={false}
@@ -37,8 +36,10 @@ const FieldMulti = memo((props: FieldMultiPropsType) => {
         )
       }
       scrollAreaProps={{
+        scrollbarSize: 8,
         offsetScrollbars: false,
         type: "always",
+        classNames: { thumb: "thumb" },
       }}
     />
   );

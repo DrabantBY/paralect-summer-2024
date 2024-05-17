@@ -28,3 +28,9 @@ iframe {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.thumb {
+  background-color: var(--mantine-color-gray-5);
+  border-radius: 1.25rem;
+  max-height: 1.5rem;
+}

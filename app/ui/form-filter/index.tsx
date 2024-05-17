@@ -9,6 +9,7 @@ import FieldNumber from "./field-number";
 import BtnReset from "../btn-reset/btn-reset";
 import checkIsDisabled from "@/app/lib/utils/check-is-disabled";
 import type { MoviesPageSearchParamsType } from "@/app/types/page";
+import classes from "./styles.module.css";
 
 type FormFilterPropsType = {
   searchParams: MoviesPageSearchParamsType;
@@ -23,7 +24,7 @@ const FormFilter = memo(
     const disabled = checkIsDisabled(searchParams);
 
     return (
-      <form>
+      <form className={classes.form}>
         <Group align="end" mb="xxl" justify="space-between" wrap="nowrap">
           <FieldMulti
             defaultValue={searchParams["with_genres"]?.split(",")}
@@ -58,7 +59,7 @@ const FormFilter = memo(
           />
         </Group>
 
-        <Group mb="xxl" justify="end">
+        <Group justify="end">
           <FieldSelect
             defaultValue={searchParams["sort_by"] ?? "popularity.desc"}
             name="sort_by"

@@ -37,6 +37,8 @@ const fetchMoviesPage = async (
     { value: "vote_average.asc", label: "Least rated" },
     { value: "vote_count.desc", label: "Most voted" },
     { value: "vote_count.asc", label: "Least voted" },
+    { value: "primary_release_date.desc", label: "Latest released" },
+    { value: "primary_release_date.asc", label: "Earliest released" },
   ];
 
   return { movies, genreData, yearsData, sortData, isEmptyMovies, total };

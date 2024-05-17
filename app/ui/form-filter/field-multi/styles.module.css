@@ -16,8 +16,7 @@
   }
 
   &:hover,
-  &[data-expanded],
-  &:focus {
+  &[data-expanded] {
     border: 1px solid var(--mantine-color-purple-5);
   }
 }

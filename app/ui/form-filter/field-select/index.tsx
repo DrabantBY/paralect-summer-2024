@@ -33,16 +33,10 @@ const FieldSelect = memo((props: FieldSelectPropsType) => {
         )
       }
       scrollAreaProps={{
-        // scrollbarSize: 7,
+        scrollbarSize: 8,
         offsetScrollbars: false,
         type: "always",
-        // styles: {
-        //   thumb: {
-        //     height: '24px',
-        //     backgroundColor: 'var(--mantine-color-gray-5)',
-        //     borderRadius: '1.25rem',
-        //   },
-        // },
+        classNames: { thumb: "thumb" },
       }}
     />
   );
