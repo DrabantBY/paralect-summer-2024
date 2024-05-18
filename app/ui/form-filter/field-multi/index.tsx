@@ -28,6 +28,7 @@ const FieldMulti = memo((props: FieldMultiPropsType) => {
       onDropdownOpen={focus}
       onDropdownClose={blur}
       onChange={submit}
+      maxValues={3}
       rightSection={
         focused ? (
           <ArrowUpIcon color="var(--mantine-color-purple-5)" size={24} />

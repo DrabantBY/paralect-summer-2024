@@ -47,9 +47,16 @@ const FormFilter = memo(
               name="vote_average.gte"
               label="Ratings"
               placeholder="From"
+              defaultValue={searchParams["vote_average.gte"] ?? ""}
+              startValue={Number(searchParams["vote_average.gte"] ?? "")}
             />
 
-            <FieldNumber name="vote_average.lte" placeholder="To" />
+            <FieldNumber
+              name="vote_average.lte"
+              placeholder="To"
+              defaultValue={searchParams["vote_average.lte"] ?? ""}
+              startValue={Number(searchParams["vote_average.lte"] ?? "")}
+            />
           </Group>
 
           <BtnReset

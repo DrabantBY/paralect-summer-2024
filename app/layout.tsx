@@ -1,13 +1,18 @@
-import { ColorSchemeScript, MantineProvider, Container, rem } from '@mantine/core';
-import theme from './theme';
-import { inter } from './fonts';
-import type { Metadata } from 'next';
-import './globals.css';
-import '@mantine/core/styles.layer.css';
+import {
+  ColorSchemeScript,
+  MantineProvider,
+  Container,
+  rem,
+} from "@mantine/core";
+import theme from "./theme";
+import { inter } from "./fonts";
+import type { Metadata } from "next";
+import "./globals.css";
+import "@mantine/core/styles.layer.css";
 
 export const metadata: Metadata = {
-  title: 'Movie Search App',
-  description: 'paralect-startup-summer-2024',
+  title: "Movie Search App",
+  description: "paralect-startup-summer-2024",
 };
 
 export default function RootLayout({
@@ -28,7 +33,8 @@ export default function RootLayout({
             mih="100vh"
             size={rem(1440)}
             p={0}
-            bg="gray.1">
+            bg="gray.1"
+          >
             {children}
           </Container>
         </MantineProvider>

@@ -24,13 +24,18 @@ const useSelectField = (name: string) => {
       newSearchParams.set("page", "1");
     }
 
-    if (!value && newSearchParams.has(name)) {
+    if (!value && newSearchParams.has(name) && name !== "sort_by") {
       newSearchParams.delete(name);
+    }
+
+    if (!value && name === "sort_by") {
+      newSearchParams.set(name, "popularity.desc");
+      newSearchParams.set("page", "1");
     }
 
     const route = `/movies?${newSearchParams.toString()}`;
 
-    replace(route);
+    replace(route, { scroll: false });
   };
 
   return { focused, focus, blur, submit };

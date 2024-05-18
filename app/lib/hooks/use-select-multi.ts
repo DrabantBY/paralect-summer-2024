@@ -30,7 +30,7 @@ const useSelectMulti = (name: string) => {
 
     const route = `/movies?${newSearchParams.toString()}`;
 
-    replace(route);
+    replace(route, { scroll: false });
   };
 
   return { focused, focus, blur, submit };

@@ -1,0 +1,7 @@
+.dots {
+  display: none;
+}
+
+.control {
+  font-size: var(--mantine-font-size-sm);
+}

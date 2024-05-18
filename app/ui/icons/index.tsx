@@ -129,3 +129,45 @@ export const SearchIcon = memo(({ size, style, ...others }: IconPropsType) => {
     </svg>
   );
 });
+
+export const ControlUpIcon = memo(
+  ({ size, style, ...others }: IconPropsType) => {
+    return (
+      <svg
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: rem(size), height: rem(size), ...style }}
+        {...others}
+      >
+        <path
+          d="M9.5 7.5L6.39047 4.83469C6.16578 4.6421 5.83422 4.6421 5.60953 4.83469L2.5 7.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+);
+
+export const ControlDownIcon = memo(
+  ({ size, style, ...others }: IconPropsType) => {
+    return (
+      <svg
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: rem(size), height: rem(size), ...style }}
+        {...others}
+      >
+        <path
+          d="M2.5 4.5L5.60953 7.16531C5.83422 7.3579 6.16578 7.3579 6.39047 7.16531L9.5 4.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+);

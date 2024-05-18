@@ -38,7 +38,7 @@ const useRated = () => {
         newSearchParams.set("page", `${newPage}`);
       }
 
-      replace(`/movies/rated?${newSearchParams.toString()}`);
+      replace(`/movies/rated?${newSearchParams.toString()}`, { scroll: false });
     } else {
       refresh();
     }

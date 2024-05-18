@@ -32,7 +32,7 @@ const FormSearch = memo((props: FormSearchPropsType) => {
         rightSectionWidth="auto"
         rightSectionProps={{
           style: {
-            paddingInlineEnd: "var(--mantine-spacing-lg)",
+            marginInlineEnd: "var(--mantine-spacing-lg)",
           },
         }}
       />

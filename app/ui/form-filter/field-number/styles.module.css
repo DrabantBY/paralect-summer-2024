@@ -1,3 +1,11 @@
+.wrapper {
+  &:has(button:hover) {
+    input {
+      border: 1px solid var(--mantine-color-purple-5);
+    }
+  }
+}
+
 .label {
   margin-block-end: var(--mantine-spacing-md);
   font-size: var(--mantine-font-size-sm);
@@ -18,20 +26,5 @@
   &:hover,
   &:focus {
     border: 1px solid var(--mantine-color-purple-5);
-  }
-}
-
-.control {
-  border: none;
-  color: var(--mantine-color-gray-5);
-
-  &:hover {
-    color: var(--mantine-color-purple-4);
-    background-color: transparent;
-  }
-
-  &:active {
-    color: var(--mantine-color-purple-5);
-    background-color: transparent;
   }
 }
