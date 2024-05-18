@@ -50,7 +50,9 @@ const formatMovieDetails = (
 
   const trailer = videos.results[0];
 
-  return { card, video: { description, production, trailer } };
+  const isVideoExist = !!description || production.length > 0 || !!trailer;
+
+  return { card, video: { description, production, trailer }, isVideoExist };
 };
 
 export default formatMovieDetails;

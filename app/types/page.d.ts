@@ -33,6 +33,8 @@ export type MovieDetailsPageDataType = {
     production: CompanyProductionDataType[];
     description: string;
   };
+
+  isVideoExist: boolean;
 };
 
 export type RatedPageSearchParamsType = {

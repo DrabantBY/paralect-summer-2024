@@ -28,8 +28,11 @@ const MovieTrailer = memo(
               src={`https://www.youtube.com/embed/${trailer.key}`}
               allowFullScreen
             ></iframe>
-            <Divider bg="gray.3" my="xl" />
           </>
+        ) : null}
+
+        {trailer && (description || production.length > 0) ? (
+          <Divider bg="gray.3" my="xl" />
         ) : null}
 
         {description ? (
@@ -40,10 +43,14 @@ const MovieTrailer = memo(
             <Text fz="sm" lh="xs">
               {description}
             </Text>
-            <Divider bg="gray.3" my="xl" />
           </>
         ) : null}
-        {production.length === 0 ? null : (
+
+        {(trailer || description) && production.length > 0 ? (
+          <Divider bg="gray.3" my="xl" />
+        ) : null}
+
+        {production.length > 0 ? (
           <>
             <Title size="md" fw="600" mb="xlg">
               Production
@@ -54,7 +61,7 @@ const MovieTrailer = memo(
               ))}
             </Stack>
           </>
-        )}
+        ) : null}
       </Paper>
     );
   }

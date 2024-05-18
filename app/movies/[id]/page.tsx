@@ -16,7 +16,7 @@ export default async function MovieDetailsPage({
     notFound();
   }
 
-  const { card, video } = data;
+  const { card, video, isVideoExist } = data;
 
   return (
     <Container my={rem(40)} px="xmd" size={rem(820)}>
@@ -28,7 +28,7 @@ export default async function MovieDetailsPage({
 
         <MovieCard movie={card} details={true} />
 
-        <MovieTrailer {...video} />
+        {isVideoExist ? <MovieTrailer {...video} /> : null}
       </Stack>
     </Container>
   );

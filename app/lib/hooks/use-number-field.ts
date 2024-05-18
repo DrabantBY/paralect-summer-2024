@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "@mantine/hooks";
 import type { NumberInputHandlers } from "@mantine/core";
@@ -10,17 +10,17 @@ const useNumberField = (name: string) => {
 
   const { replace } = useRouter();
 
-  const increment = useDebouncedCallback(() => {
+  const increment = useCallback(() => {
     handlersRef.current?.increment();
-  }, 150);
+  }, []);
 
-  const decrement = useDebouncedCallback(() => {
+  const decrement = useCallback(() => {
     handlersRef.current?.decrement();
-  }, 150);
+  }, []);
 
   const handlers = { increment, decrement };
 
-  const onChange = (value: string | number) => {
+  const onChange = useDebouncedCallback((value: string | number) => {
     const newSearchParams = new URLSearchParams(searchParams);
 
     if (value) {
@@ -35,7 +35,7 @@ const useNumberField = (name: string) => {
     const route = `/movies?${newSearchParams.toString()}`;
 
     replace(route, { scroll: false });
-  };
+  }, 200);
 
   return { handlers, handlersRef, onChange };
 };
