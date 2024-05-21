@@ -7,8 +7,8 @@ import {
 import theme from "./theme";
 import { inter } from "./fonts";
 import type { Metadata } from "next";
+import "@mantine/core/styles.css";
 import "./globals.css";
-import "@mantine/core/styles.layer.css";
 
 export const metadata: Metadata = {
   title: "Movie Search App",

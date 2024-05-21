@@ -13,7 +13,7 @@ type CardHeaderPropsType = {
 const CardHeader = memo(({ movie, handler }: CardHeaderPropsType) => {
   return (
     <Group align="flex-start" gap="xs" justify="space-between" wrap="nowrap">
-      <Title size="md" fw="600" c="purple.5">
+      <Title fz={{ base: "xs", xs: "md" }} fw="600" c="purple.5">
         {movie.original_title}
       </Title>
 

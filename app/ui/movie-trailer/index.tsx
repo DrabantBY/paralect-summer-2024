@@ -15,7 +15,7 @@ type MovieTrailerPropsType = {
 const MovieTrailer = memo(
   ({ trailer, production, description }: MovieTrailerPropsType) => {
     return (
-      <Paper radius="lg" p="xxl">
+      <Paper radius="lg" p={{ base: "sm", sm: "xxl" }}>
         {trailer ? (
           <>
             <Title size="md" fw="600" mb="xlg">
@@ -32,7 +32,7 @@ const MovieTrailer = memo(
         ) : null}
 
         {trailer && (description || production.length > 0) ? (
-          <Divider bg="gray.3" my="xl" />
+          <Divider bg="gray.3" my={{ base: "xmd", sm: "xl" }} />
         ) : null}
 
         {description ? (
@@ -47,7 +47,7 @@ const MovieTrailer = memo(
         ) : null}
 
         {(trailer || description) && production.length > 0 ? (
-          <Divider bg="gray.3" my="xl" />
+          <Divider bg="gray.3" my={{ base: "xmd", sm: "xl" }} />
         ) : null}
 
         {production.length > 0 ? (

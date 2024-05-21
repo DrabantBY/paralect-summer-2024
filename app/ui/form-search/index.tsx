@@ -16,7 +16,7 @@ const FormSearch = memo((props: FormSearchPropsType) => {
         classNames={classes}
         name="search"
         {...props}
-        miw={rem(490)}
+        miw={{ base: "auto", xs: rem(490) }}
         radius="md"
         placeholder="Search movie title"
         leftSection={

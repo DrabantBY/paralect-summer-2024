@@ -24,11 +24,15 @@ const CardDetails = memo(
       <Stack gap="lg">
         {duration ? (
           <Group align="flex-start" wrap="nowrap" gap="md">
-            <Text size="sm" c="gray.6" miw={details ? rem(140) : "auto"}>
+            <Text
+              fz={{ base: "xs", xs: "sm" }}
+              c="gray.6"
+              miw={details ? rem(140) : "auto"}
+            >
               Duration
             </Text>
 
-            <Text size="sm" c="black">
+            <Text fz={{ base: "xs", xs: "sm" }} c="black">
               {duration}
             </Text>
           </Group>
@@ -36,11 +40,15 @@ const CardDetails = memo(
 
         {premiere ? (
           <Group align="flex-start" wrap="nowrap" gap="md">
-            <Text size="sm" c="gray.6" miw={details ? rem(140) : "auto"}>
+            <Text
+              fz={{ base: "xs", xs: "sm" }}
+              c="gray.6"
+              miw={details ? rem(140) : "auto"}
+            >
               Premiere
             </Text>
 
-            <Text size="sm" c="black">
+            <Text fz={{ base: "xs", xs: "sm" }} c="black">
               {premiere}
             </Text>
           </Group>
@@ -48,7 +56,11 @@ const CardDetails = memo(
 
         {budget ? (
           <Group align="flex-start" wrap="nowrap" gap="md">
-            <Text size="sm" c="gray.6" miw={details ? rem(140) : "auto"}>
+            <Text
+              fz={{ base: "xs", xs: "sm" }}
+              c="gray.6"
+              miw={details ? rem(140) : "auto"}
+            >
               Budget
             </Text>
 
@@ -58,7 +70,11 @@ const CardDetails = memo(
 
         {gross ? (
           <Group align="flex-start" wrap="nowrap" gap="md">
-            <Text size="sm" c="gray.6" miw={details ? rem(140) : "auto"}>
+            <Text
+              fz={{ base: "xs", xs: "sm" }}
+              c="gray.6"
+              miw={details ? rem(140) : "auto"}
+            >
               Gross worldwide
             </Text>
 
@@ -67,11 +83,15 @@ const CardDetails = memo(
         ) : null}
 
         <Group align="flex-start" wrap="nowrap" gap="md">
-          <Text size="sm" c="gray.6" miw={details ? rem(140) : "auto"}>
+          <Text
+            fz={{ base: "xs", xs: "sm" }}
+            c="gray.6"
+            miw={details ? rem(140) : "auto"}
+          >
             Genres
           </Text>
 
-          <Text size="sm" c="black">
+          <Text fz={{ base: "xs", xs: "sm" }} c="black">
             {genres}
           </Text>
         </Group>

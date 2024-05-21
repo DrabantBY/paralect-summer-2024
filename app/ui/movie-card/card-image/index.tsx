@@ -11,7 +11,11 @@ type CardImagePropsType = {
 
 const CardImage = memo(({ src, details }: CardImagePropsType) => {
   return (
-    <Box pos="relative" miw={!details ? 120 : 250} h={!details ? 170 : 352}>
+    <Box
+      pos="relative"
+      miw={!details ? 120 : { base: "100%", xs: 250 }}
+      h={!details ? 170 : { base: 400, xs: 352 }}
+    >
       <Image
         component={NextImage}
         src={src}

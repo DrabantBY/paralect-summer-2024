@@ -1,4 +1,9 @@
 .form {
   margin-block-start: 40px;
+
   margin-block-end: var(--mantine-spacing-xxl);
+
+  @media (max-width: $mantine-breakpoint-md) {
+    margin-block: var(--mantine-spacing-lg);
+  }
 }

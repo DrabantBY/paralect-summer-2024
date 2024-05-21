@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Container, Group, Title, rem } from "@mantine/core";
 import MovieList from "../ui/movie-list";
 import Paginator from "../ui/paginator";
@@ -7,7 +9,11 @@ import EmptyData from "../ui/empty/empty-data";
 import FormFilter from "../ui/form-filter";
 import fetchMoviesPage from "../lib/fetch/fetch-movies-page";
 import type { MoviesPageSearchParamsType } from "../types/page";
-import { notFound } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "page | movies",
+  description: "",
+};
 
 export default async function MoviesPage({
   searchParams,
@@ -25,7 +31,7 @@ export default async function MoviesPage({
   const suspenseKey = new URLSearchParams(searchParams);
 
   return (
-    <Container my={rem(40)} px="xmd" size={rem(1000)}>
+    <Container my={{ base: "xmd", lg: rem(40) }} px="xmd" size={rem(1000)}>
       <Title fz="xl">Movies</Title>
       <FormFilter
         genres={genreData}

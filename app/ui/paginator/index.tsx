@@ -22,6 +22,8 @@ const Paginator = memo((props: PaginatorPropsType) => {
       size="md"
       radius="sm"
       color="purple.5"
+      boundaries={0}
+      siblings={1}
     />
   );
 });

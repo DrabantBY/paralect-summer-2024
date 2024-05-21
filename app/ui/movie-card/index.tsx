@@ -1,6 +1,6 @@
 import { memo } from "react";
 import Link from "next/link";
-import { Paper, Text, Group, Stack } from "@mantine/core";
+import { Paper, Text, Group, Stack, Flex } from "@mantine/core";
 import VoteAverage from "./vote-average";
 import VoteCount from "./vote-count";
 import CardDetails from "./card-details";
@@ -18,20 +18,30 @@ type MovieCardPropsType = {
 export const MovieCard = memo(
   ({ movie, details, handler }: MovieCardPropsType) => {
     return (
-      <Paper radius="lg" p="xxl" component={Link} href={`/movies/${movie.id}`}>
-        <Group align="flex-start" wrap="nowrap" gap="xlg">
+      <Paper
+        radius="lg"
+        p={{ base: "sm", sm: "xxl" }}
+        component={Link}
+        href={`/movies/${movie.id}`}
+      >
+        <Flex
+          align="flex-start"
+          wrap={details ? { base: "wrap", xs: "nowrap" } : "nowrap"}
+          gap="xlg"
+        >
           <CardImage src={movie.poster_path} details={details} />
 
-          <Stack
+          <Flex
+            direction="column"
             justify="space-between"
-            mih={!details ? 170 : 352}
+            mih={!details ? 170 : { base: "auto", xs: 352 }}
             gap="md"
             w="100%"
           >
             <Stack gap="md">
               <CardHeader movie={movie} handler={handler} />
 
-              <Text size="sm" c="gray.6">
+              <Text fz={{ base: "xs", xs: "sm" }} c="gray.6">
                 {movie.release_year}
               </Text>
 
@@ -52,8 +62,8 @@ export const MovieCard = memo(
               gross={movie.revenue}
               details={details}
             />
-          </Stack>
-        </Group>
+          </Flex>
+        </Flex>
       </Paper>
     );
   }

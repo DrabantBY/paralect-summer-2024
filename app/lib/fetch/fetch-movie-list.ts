@@ -1,4 +1,5 @@
 import "server-only";
+
 import formatParams from "../utils/format-params";
 import type { FetchMovieListDataType } from "@/app/types/fetch";
 import type { MoviesPageSearchParamsType } from "@/app/types/page";

@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { StarIcon } from '../../icons';
+import { memo } from "react";
+import { StarIcon } from "../../icons";
 
 export const StarActivated = memo(() => {
   return <StarIcon size={28} color="var(--mantine-color-yellow-6)" />;

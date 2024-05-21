@@ -1,4 +1,5 @@
 import "server-only";
+
 import formatMovieDetails from "../utils/format-movie-details";
 import type { FetchMovieDetailsDataType } from "@/app/types/fetch";
 import type { MovieDetailsPageDataType } from "@/app/types/page";

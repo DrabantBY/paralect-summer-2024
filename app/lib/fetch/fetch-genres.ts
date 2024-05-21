@@ -1,4 +1,5 @@
 import "server-only";
+
 import type { GenreDataType } from "@/app/types/data";
 import type { FetchGenreListDataType } from "@/app/types/fetch";
 

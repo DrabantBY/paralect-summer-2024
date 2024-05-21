@@ -1,4 +1,5 @@
 import "server-only";
+
 import fetchMovieList from "./fetch-movie-list";
 import fetchGenres from "./fetch-genres";
 import formatGenreData from "../utils/format-genre-data";

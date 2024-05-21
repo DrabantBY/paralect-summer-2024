@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { NavLink, rem } from '@mantine/core';
-import { LogoIcon } from '../icons';
-import { poppins } from '@/app/fonts';
-import classes from './styles.module.css';
+import Link from "next/link";
+import { NavLink, rem } from "@mantine/core";
+import { LogoIcon } from "../icons";
+import { poppins } from "@/app/fonts";
+import classes from "./styles.module.css";
 
 const Logo = () => {
   return (
@@ -15,7 +15,7 @@ const Logo = () => {
       label="ArrowFlicks"
       c="purple.5"
       p={0}
-      mb={rem(80)}
+      mb={{ base: "xlg", lg: rem(80) }}
     />
   );
 };

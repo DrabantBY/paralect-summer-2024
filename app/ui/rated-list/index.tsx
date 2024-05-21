@@ -25,8 +25,8 @@ const RatedList = memo(({ children }: RatedListPropsType) => {
   return empty ? (
     children[0]
   ) : (
-    <Container my={rem(40)} px="xmd" size={rem(1000)}>
-      <Group justify="space-between" gap="md" mb={rem(40)}>
+    <Container my={{ base: "xmd", lg: rem(40) }} px="xmd" size={rem(1000)}>
+      <Group justify="space-between" gap="md" mb={{ base: "lg", lg: rem(40) }}>
         <Title fz="xl">Rated movies</Title>
         <FormSearch defaultValue={search} />
       </Group>
@@ -34,7 +34,10 @@ const RatedList = memo(({ children }: RatedListPropsType) => {
       {movies.length === 0 ? (
         children[1]
       ) : (
-        <SimpleGrid cols={2} spacing="xlg">
+        <SimpleGrid
+          cols={{ base: 1, sm: 2 }}
+          spacing={{ base: "sm", sm: "xlg" }}
+        >
           {movies.map((movie) => (
             <MovieCard
               key={movie.id}

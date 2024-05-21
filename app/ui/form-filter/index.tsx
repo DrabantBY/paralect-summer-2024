@@ -2,7 +2,7 @@
 
 import { memo } from "react";
 import { useRouter } from "next/navigation";
-import { Group, rem } from "@mantine/core";
+import { Flex, Group, rem } from "@mantine/core";
 import FieldMulti from "./field-multi";
 import FieldSelect from "./field-select";
 import FieldNumber from "./field-number";
@@ -25,7 +25,13 @@ const FormFilter = memo(
 
     return (
       <form className={classes.form}>
-        <Group align="end" mb="xxl" justify="space-between" wrap="nowrap">
+        <Flex
+          justify={{ base: "flex-start", md: "space-between" }}
+          align="end"
+          gap="md"
+          mb={{ base: "xmd", lg: "xxl" }}
+          wrap="wrap"
+        >
           <FieldMulti
             defaultValue={searchParams["with_genres"]?.split(",")}
             name="with_genres"
@@ -64,9 +70,9 @@ const FormFilter = memo(
             disabled={disabled}
             onClick={() => replace("/movies")}
           />
-        </Group>
+        </Flex>
 
-        <Group justify="end">
+        <Flex justify={{ base: "start", md: "end" }}>
           <FieldSelect
             defaultValue={searchParams["sort_by"] ?? "popularity.desc"}
             name="sort_by"
@@ -74,7 +80,7 @@ const FormFilter = memo(
             placeholder="Select sort"
             data={sort}
           />
-        </Group>
+        </Flex>
       </form>
     );
   }

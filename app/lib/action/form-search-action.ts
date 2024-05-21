@@ -10,6 +10,7 @@ const formSearchAction = (formData: FormData) => {
   const url = formatSearchFormData(search);
 
   revalidatePath(url);
+
   redirect(url);
 };
 
